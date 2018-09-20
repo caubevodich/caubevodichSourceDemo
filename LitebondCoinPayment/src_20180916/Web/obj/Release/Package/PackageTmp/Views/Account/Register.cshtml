@@ -1,0 +1,141 @@
+﻿@model WebUI.Models.RegisterViewModel
+@using WebUI.Helpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="LITEBOND is an escrow investment, litecoin and multifunctional online platform based on blockchain technology. There investors have the opportunity to support the community money on mutually beneficial.">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="~/Content/userpanel/images/favicon.ico">
+    <!-- Site Title  -->
+    <title>Register - Escrowing Of Litecoin</title>
+    <!-- Vendor Bundle CSS -->
+    <link rel="stylesheet" href="~/Content/userpanel/theme/vendor.bundle.css?ver=142">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="~/Content/userpanel/theme/style.css?ver=142">
+    <link rel="stylesheet" href="~/Content/userpanel/theme/theme.css?ver=142">
+    <link href="~/Content/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" />
+</head>
+
+<body class="theme-light io-light-pro theme-muscari io-mascari" data-spy="scroll" data-target="#mainnav" data-offset="80">
+
+    <div class="user-page d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-9">
+                    <div class="user-pro-box">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <div class="user-pro-info">
+                                    <div class="user-logo">
+                                        <a href="#">
+                                            <img src="~/Content/userpanel/images/favicon.ico" srcset="~/Content/userpanel/images/favicon.ico 2x" alt="icon" style="margin-right:55px">
+                                        </a>
+                                    </div>
+                                    <div class="user-graphics">
+                                        <img src="~/Content/userpanel/images/user-page-image.png" alt="user">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="user-pro-form">
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div class="tab-pane fade show active" id="cont-signup" role="tabpanel">
+                                            <span class="form-heading">Create an account to Join LiteBond Crypto Community and escrowing the Litecoin.</span>
+                                            @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "alert alert-danger" })
+                                                <form action="#" class="signup-form">
+                                                    <div class="input-item">
+
+                                                        @Html.TextBoxFor(m => m.ReferralLink, new { @class = "input-border-simple", @placeholder = "Referral" })
+                                                        <em class="fas fa-user"></em>
+
+                                                    </div>
+                                                    <div class="input-item">
+                                                        @Html.TextBoxFor(m => m.Email, new { @class = "input-border-simple", @placeholder = "Your Email" })
+                                                        <em class="fas fa-envelope"></em>
+                                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "small-heading" })
+                                                    </div>
+                                                    <div class="row gutter-20">
+                                                        <div class="col-lg-6">
+                                                            <div class="input-item">
+
+                                                                @Html.PasswordFor(m => m.Password, new { @class = "input-border-simple", @placeholder = "Password" })
+                                                                <em class="fas fa-lock"></em>
+                                                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "small-heading" })
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="input-item">
+
+                                                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "input-border-simple", @placeholder = "Confirm Pass" })
+                                                                <em class="fas fa-lock"></em>
+                                                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "small-heading" })
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-item">
+                                                        @Html.reCaptcha()
+                                                    </div>
+
+                                                    <div class="input-item text-left">
+                                                        <input type="checkbox" name="aggrement" id="aggrement" class="input-checkbox">
+                                                        <label for="aggrement">I confrim that I have read, understand and agree to the <a href="~/doc/download/Privacy_Policy_of_LiteBond.pdf">Privacy Policy</a> and <a href="~/doc/download/TERMS_OF_SERVICE.pdf">Terms of Service</a>.</label>
+                                                    </div>
+                                                    <div class="d-xl-flex justify-content-between align-items-center">
+                                                        <button type="submit" id="btnSubmit" class="btn btn-sm">Sign Up</button>
+                                                        <div class="gaps d-xl-none"></div>
+                                                        <span class="d-block">Have an account? <a href="@Url.Action("Login")" class="simple-link">Sign in!</a></span>
+                                                    </div>
+                                                </form>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gaps"></div>
+                    <div class="form-footer d-flex justify-content-between">
+                        <span>Copyright © 2018 LiteBond.</span>
+                        <ul class="form-footer-links">
+                            <li><a href="~/doc/download/Privacy_Policy_of_LiteBond.pdf">Privacy Policy</a></li>
+                            <li><a href="~/doc/download/TERMS_OF_SERVICE.pdf">Terms &amp; Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader !remove please if you do not want -->
+    <div id="preloader">
+        <div id="loader"></div>
+        <div class="loader-section loader-top"></div>
+        <div class="loader-section loader-bottom"></div>
+    </div>
+    <!-- Preloader End -->
+    <!-- JavaScript (include all script here) -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script src="~/Content/userpanel/theme/jquery.bundle.js?ver=142"></script>
+    <script src="~/Content/userpanel/theme/script.js?ver=142"></script>
+
+    <script src="~/Content/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="~/Scripts/apps/login.js"></script>
+</body>
+</html>

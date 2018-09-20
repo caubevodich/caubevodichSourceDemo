@@ -1,0 +1,30 @@
+﻿@model WebUI.Models.ProfileViewModel
+
+@using (Html.BeginForm("ChangeProfile", "Me", FormMethod.Post, new { @class = "form", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <h3>Personal Information</h3>
+    <div class="input-item input-with-label">
+        <label for="full-name" class="input-item-label">Referral</label>
+        <input readonly class="input-bordered" type="text" id="ReferralId" name="ReferralId" placeholder="Referral" value="@Model.ReferralId">
+    </div>
+    <div class="input-item input-with-label">
+        @Html.LabelFor(m => m.FullName, new { @class = "input-item-label", @placeholder = "FullName" })
+        @Html.TextBoxFor(m => m.FullName, new { @class = "input-bordered", @placeholder = "FullName", @value = "@Model.FullName" })      
+    </div>
+    <div class="input-item input-with-label">
+        <label for="full-name" class="input-item-label">Email</label>
+       
+        <input readonly class="input-bordered" type="text" id="Email" name="Email" placeholder="Email" value="@User.Identity.Name">
+    </div>
+    <div class="input-item input-with-label">
+        <label for="full-name" class="input-item-label">Phone Number</label>
+        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "input-bordered", @placeholder = "Phone Number", @value = "@Model.PhoneNumber" })
+    </div>
+    <div class="d-sm-flex justify-content-between align-items-center">
+        <button class="btn btn-primary">Update</button>
+        <div class="gaps-2x d-sm-none"></div>
+    </div>
+
+}

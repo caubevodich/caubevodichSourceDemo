@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@*/* Mega */*@
+<script src="~/Scripts/Mega/fadeslideshow.js"></script>
+<script src="~/Scripts/Mega/mega.js"></script>
+<section>
+    <div class="container">
+        <div class="row">
+
+            <div id="bannerCntr" style="margin: 0 auto;">
+                <div class="left">
+
+                    <img src="Content/Mega/images/fram.png" alt="" class="imaging1" />
+
+                    <div id="fadeshow1" style="display:none;"></div>
+
+                    <div id="fadeshow2"></div>
+
+                    <div id="fadeshow2toggler" style="width:669px; position: relative;">
+
+                        <a href="#" class="prev"><img src="Content/Mega/images/leftarrow.png" style="border-width:0" alt="" /></a>
+
+                        <span class="status" style="margin:0 50px; font-weight:bold; display: none;"></span>
+
+                        <a href="#" class="next"><img src="Content/Mega/images/rightarrow.png" style="border-width:0" alt="" /></a>
+
+                    </div>
+
+                </div>
+
+                <div class="right">
+
+                    <ul>
+                        <li><a href="#" class="first">Lorem ipsum dolor sit amet</a></li>
+                        <li><a href="#" class="second">Sed ut perspiciatis unde omnis</a></li>
+                        <li><a href="#" class="third">Quis autem vel eum iure repre</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section style="padding-top:50px">
+    <div class="row">
+        <ul id="sm" class="sm">
+            <li><a href="portfolio.html"><img src="~/Content/slideRoom/screen_1.jpg" alt="" /></a></li>
+            <li><a href="portfolio.html"><img src="~/Content/slideRoom/screen_2.jpg" alt="" /></a></li>
+            <li><a href="portfolio.html"><img src="~/Content/slideRoom/screen_3.jpg" alt="" /></a></li>
+            <li><a href="portfolio.html"><img src="~/Content/slideRoom/screen_4.jpg" alt="" /></a></li>
+            <li><a href="portfolio.html"><img src="~/Content/slideRoom/screen_5.jpg" alt="" /></a></li>
+
+        </ul>
+    </div>
+</section>
+
+@*/* Room - Lottery - START */*@
+
+<script src="~/Scripts/exScript/slidemenu.js"></script>
+<script>
+    $(document).ready(function () {
+        slideMenu.build('sm', 650, 10, 10, 2);
+
+    })
+</script>
+@*/* Room - Lottery - START */*@

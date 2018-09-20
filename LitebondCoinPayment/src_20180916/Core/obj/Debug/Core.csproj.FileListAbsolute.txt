@@ -1,0 +1,87 @@
+D:\PROJECT\BTCXProject\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+D:\PROJECT\BTCXProject\Core\bin\Debug\Core.dll.config
+D:\PROJECT\BTCXProject\Core\bin\Debug\Core.dll
+D:\PROJECT\BTCXProject\Core\bin\Debug\Core.pdb
+D:\PROJECT\BTCXProject\Core\bin\Debug\EntityFramework.dll
+D:\PROJECT\BTCXProject\Core\bin\Debug\EntityFramework.SqlServer.dll
+D:\PROJECT\BTCXProject\Core\bin\Debug\EntityFramework.xml
+D:\PROJECT\BTCXProject\Core\bin\Debug\EntityFramework.SqlServer.xml
+D:\PROJECT\BTCXProject\Core\obj\Debug\Core.dll
+D:\PROJECT\BTCXProject\Core\obj\Debug\Core.pdb
+D:\Projects\CSharp\MVC\USLottery\Core\bin\Debug\Core.dll.config
+D:\Projects\CSharp\MVC\USLottery\Core\bin\Debug\Core.dll
+D:\Projects\CSharp\MVC\USLottery\Core\bin\Debug\Core.pdb
+D:\Projects\CSharp\MVC\USLottery\Core\bin\Debug\EntityFramework.dll
+D:\Projects\CSharp\MVC\USLottery\Core\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\CSharp\MVC\USLottery\Core\bin\Debug\EntityFramework.xml
+D:\Projects\CSharp\MVC\USLottery\Core\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\CSharp\MVC\USLottery\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+D:\Projects\CSharp\MVC\USLottery\Core\obj\Debug\Core.dll
+D:\Projects\CSharp\MVC\USLottery\Core\obj\Debug\Core.pdb
+F:\Projects\CSharp\bitbucket\Loto\Core\bin\Debug\Core.dll.config
+F:\Projects\CSharp\bitbucket\Loto\Core\bin\Debug\Core.dll
+F:\Projects\CSharp\bitbucket\Loto\Core\bin\Debug\Core.pdb
+F:\Projects\CSharp\bitbucket\Loto\Core\bin\Debug\EntityFramework.dll
+F:\Projects\CSharp\bitbucket\Loto\Core\bin\Debug\EntityFramework.SqlServer.dll
+F:\Projects\CSharp\bitbucket\Loto\Core\bin\Debug\EntityFramework.xml
+F:\Projects\CSharp\bitbucket\Loto\Core\bin\Debug\EntityFramework.SqlServer.xml
+F:\Projects\CSharp\bitbucket\Loto\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+F:\Projects\CSharp\bitbucket\Loto\Core\obj\Debug\Core.dll
+F:\Projects\CSharp\bitbucket\Loto\Core\obj\Debug\Core.pdb
+D:\PROJECT\tuanitpro-btctubeproject-2c3b2722f9a7\Core\bin\Debug\Core.dll.config
+D:\PROJECT\tuanitpro-btctubeproject-2c3b2722f9a7\Core\bin\Debug\Core.dll
+D:\PROJECT\tuanitpro-btctubeproject-2c3b2722f9a7\Core\bin\Debug\Core.pdb
+D:\PROJECT\tuanitpro-btctubeproject-2c3b2722f9a7\Core\bin\Debug\EntityFramework.dll
+D:\PROJECT\tuanitpro-btctubeproject-2c3b2722f9a7\Core\bin\Debug\EntityFramework.SqlServer.dll
+D:\PROJECT\tuanitpro-btctubeproject-2c3b2722f9a7\Core\bin\Debug\EntityFramework.xml
+D:\PROJECT\tuanitpro-btctubeproject-2c3b2722f9a7\Core\bin\Debug\EntityFramework.SqlServer.xml
+D:\PROJECT\tuanitpro-btctubeproject-2c3b2722f9a7\Core\obj\Debug\Core.csprojAssemblyReference.cache
+D:\PROJECT\tuanitpro-btctubeproject-2c3b2722f9a7\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
+D:\PROJECT\tuanitpro-btctubeproject-2c3b2722f9a7\Core\obj\Debug\Core.csproj.CopyComplete
+D:\PROJECT\tuanitpro-btctubeproject-2c3b2722f9a7\Core\obj\Debug\Core.dll
+D:\PROJECT\tuanitpro-btctubeproject-2c3b2722f9a7\Core\obj\Debug\Core.pdb
+D:\PROJECT\crypto-project\src\Core\bin\Debug\Core.dll.config
+D:\PROJECT\crypto-project\src\Core\bin\Debug\Core.dll
+D:\PROJECT\crypto-project\src\Core\bin\Debug\Core.pdb
+D:\PROJECT\crypto-project\src\Core\bin\Debug\EntityFramework.dll
+D:\PROJECT\crypto-project\src\Core\bin\Debug\EntityFramework.SqlServer.dll
+D:\PROJECT\crypto-project\src\Core\bin\Debug\EntityFramework.xml
+D:\PROJECT\crypto-project\src\Core\bin\Debug\EntityFramework.SqlServer.xml
+D:\PROJECT\crypto-project\src\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
+D:\PROJECT\crypto-project\src\Core\obj\Debug\Core.csproj.CopyComplete
+D:\PROJECT\crypto-project\src\Core\obj\Debug\Core.dll
+D:\PROJECT\crypto-project\src\Core\obj\Debug\Core.pdb
+D:\PROJECT\crypto-project\src\Core\obj\Debug\Core.csprojAssemblyReference.cache
+D:\PROJECT\crypto-project\src\Core\bin\Debug\Newtonsoft.Json.dll
+D:\PROJECT\crypto-project\src\Core\bin\Debug\Newtonsoft.Json.xml
+E:\src_20180916\Core\bin\Debug\Core.dll.config
+E:\src_20180916\Core\bin\Debug\Core.dll
+E:\src_20180916\Core\bin\Debug\Core.pdb
+E:\src_20180916\Core\bin\Debug\EntityFramework.dll
+E:\src_20180916\Core\bin\Debug\EntityFramework.SqlServer.dll
+E:\src_20180916\Core\bin\Debug\Newtonsoft.Json.dll
+E:\src_20180916\Core\bin\Debug\EntityFramework.xml
+E:\src_20180916\Core\bin\Debug\EntityFramework.SqlServer.xml
+E:\src_20180916\Core\bin\Debug\Newtonsoft.Json.xml
+E:\src_20180916\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
+E:\src_20180916\Core\obj\Debug\Core.csproj.CopyComplete
+E:\src_20180916\Core\obj\Debug\Core.dll
+E:\src_20180916\Core\obj\Debug\Core.pdb
+E:\CoinPayment\New folder\src_20180916\Core\obj\Debug\Core.csprojAssemblyReference.cache
+E:\CoinPayment\New folder\src_20180916\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
+E:\CoinPayment\New folder\src_20180916\Core\obj\Debug\Core.dll
+E:\CoinPayment\New folder\src_20180916\Core\obj\Debug\Core.pdb
+E:\CoinPayment\New folder\src_20180916\Core\bin\Debug\Core.dll.config
+E:\CoinPayment\New folder\src_20180916\Core\bin\Debug\Core.dll
+E:\CoinPayment\New folder\src_20180916\Core\bin\Debug\Core.pdb
+E:\CoinPayment\New folder\src_20180916\Core\bin\Debug\EntityFramework.dll
+E:\CoinPayment\New folder\src_20180916\Core\bin\Debug\EntityFramework.SqlServer.dll
+E:\CoinPayment\New folder\src_20180916\Core\bin\Debug\Newtonsoft.Json.dll
+E:\CoinPayment\New folder\src_20180916\Core\bin\Debug\ServiceStack.Text.dll
+E:\CoinPayment\New folder\src_20180916\Core\bin\Debug\System.Runtime.Serialization.Formatters.dll
+E:\CoinPayment\New folder\src_20180916\Core\bin\Debug\System.Runtime.Serialization.Primitives.dll
+E:\CoinPayment\New folder\src_20180916\Core\bin\Debug\EntityFramework.xml
+E:\CoinPayment\New folder\src_20180916\Core\bin\Debug\EntityFramework.SqlServer.xml
+E:\CoinPayment\New folder\src_20180916\Core\bin\Debug\Newtonsoft.Json.xml
+E:\CoinPayment\New folder\src_20180916\Core\bin\Debug\ServiceStack.Text.xml
+E:\CoinPayment\New folder\src_20180916\Core\obj\Debug\Core.csproj.CopyComplete

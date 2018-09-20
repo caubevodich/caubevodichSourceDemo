@@ -1,0 +1,173 @@
+﻿@model Core.Domain.Models.DashboardModel
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<div class="row">
+    <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-primary">
+            <div class="card-body pb-0">
+
+                <div class="text-value">@Model.Balance LTC</div>
+                <div>LTC Balance</div>
+            </div>
+            <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                <canvas id="card-chart1" class="chart chartjs-render-monitor" height="70" width="216" style="display: block; width: 216px; height: 70px;"></canvas>
+                <div id="card-chart1-tooltip" class="chartjs-tooltip top" style="opacity: 0; left: 124.558px; top: 93.2875px;"><div class="tooltip-header"><div class="tooltip-header-item">April</div></div><div class="tooltip-body"><div class="tooltip-body-item"><span class="tooltip-body-item-color" style="background-color: rgb(32, 168, 216);"></span><span class="tooltip-body-item-label">My First dataset</span><span class="tooltip-body-item-value">84</span></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-info">
+            <div class="card-body pb-0">
+
+                <div class="text-value">@Model.Deposit LTC</div>
+                <div>Total Deposit</div>
+            </div>
+            <div class="chart-wrapper mt-3" style="height:70px;">
+                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                <canvas id="card-chart3" class="chart chartjs-render-monitor" height="70" width="248" style="display: block; width: 248px; height: 70px;"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-success">
+            <div class="card-body pb-0">
+
+                <div class="text-value">@Model.Income LTC</div>
+                <div>Level Income</div>
+            </div>
+            <div class="chart-wrapper mt-3" style="height:70px;">
+                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                <canvas id="card-chart3" class="chart chartjs-render-monitor" height="70" width="248" style="display: block; width: 248px; height: 70px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-danger">
+            <div class="card-body pb-0">
+
+                <div class="text-value">@Model.Level</div>
+                <div>Your Level</div>
+            </div>
+            <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                <canvas id="card-chart4" class="chart chartjs-render-monitor" height="70" width="216" style="display: block; width: 216px; height: 70px;"></canvas>
+                <div id="card-chart4-tooltip" class="chartjs-tooltip top" style="opacity: 0; left: 225px; top: 100.6px;"><div class="tooltip-header"><div class="tooltip-header-item">April</div></div><div class="tooltip-body"><div class="tooltip-body-item"><span class="tooltip-body-item-color" style="background-color: rgba(230, 230, 230, 0.2);"></span><span class="tooltip-body-item-label">My First dataset</span><span class="tooltip-body-item-value">82</span></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-info">
+            <div class="card-body pb-0">
+
+                <div class="text-value">@Model.MyWallet.AvailableBalance LTC</div>
+                <div>Total Deposit</div>
+            </div>
+            <div class="chart-wrapper mt-3" style="height:70px;">
+                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                <canvas id="card-chart3" class="chart chartjs-render-monitor" height="70" width="248" style="display: block; width: 248px; height: 70px;"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="card text-white bg-warning">
+            <div class="card-body pb-0">
+
+                <div class="text-value">4 REF</div>
+                <div>Total Referral</div>
+            </div>
+            <div class="chart-wrapper mt-3" style="height:70px;">
+                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                <canvas id="card-chart3" class="chart chartjs-render-monitor" height="70" width="248" style="display: block; width: 248px; height: 70px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>Your referral</strong>
+                link
+            </div>
+            <div class="card-body">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label for="nf-email">Copy link and share</label>
+                        <div class="input-group">
+                            <input type="text" id="referrallink" name="referrallink" class="form-control" placeholder="Referral" value="@Model.ReferralLink"/>
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-success" onclick="doCopy()">
+                                    <i class="fa fa-copy"></i> Copy
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-sm-6 col-lg-6">
+        <div class="card text-white bg-danger">
+            <div class="card-body pb-0">
+
+                <div class="text-value">@DateTime.Now.ToString("U", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</div>
+                <div>Server Time</div>
+            </div>
+            <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                <canvas id="card-chart4" class="chart chartjs-render-monitor" height="70" width="216" style="display: block; width: 216px; height: 70px;"></canvas>
+                <div id="card-chart4-tooltip" class="chartjs-tooltip top" style="opacity: 0; left: 225px; top: 100.6px;"><div class="tooltip-header"><div class="tooltip-header-item">April</div></div><div class="tooltip-body"><div class="tooltip-body-item"><span class="tooltip-body-item-color" style="background-color: rgba(230, 230, 230, 0.2);"></span><span class="tooltip-body-item-label">My First dataset</span><span class="tooltip-body-item-value">82</span></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-6">
+        <div class="card text-white bg-primary">
+            <div class="card-body pb-0">
+
+                <div class="text-value">1 LTC = $83</div>
+                <div>Current LTC Price</div>
+            </div>
+            <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                <canvas id="card-chart1" class="chart chartjs-render-monitor" height="70" width="216" style="display: block; width: 216px; height: 70px;"></canvas>
+                <div id="card-chart1-tooltip" class="chartjs-tooltip top" style="opacity: 0; left: 124.558px; top: 93.2875px;"><div class="tooltip-header"><div class="tooltip-header-item">April</div></div><div class="tooltip-body"><div class="tooltip-body-item"><span class="tooltip-body-item-color" style="background-color: rgb(32, 168, 216);"></span><span class="tooltip-body-item-label">My First dataset</span><span class="tooltip-body-item-value">84</span></div></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        function doCopy() {
+            /* Get the text field */
+            var copyText = document.getElementById("referrallink");
+
+            /* Select the text field */
+            copyText.select();
+
+            /* Copy the text inside the text field */
+            document.execCommand("copy");
+
+            /* Alert the copied text */
+            swal({
+                title: 'Copied',
+                type: 'success',
+                confirmButtonText: 'Ok'
+            });
+        }
+    </script>
+    }

@@ -1,0 +1,22 @@
+﻿@model WebUI.Models.ProfileViewModel
+
+<table class="table table-responsive-sm table-bordered">
+    <thead>
+        <tr>
+            <th style="width:200px">Login Time (local time)</th>
+            <th>User Agent</th>
+            <th style="width:100px">Ip Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.LoginHistorys)
+        {
+            <tr>
+                <td>@item.LoginTime.ToString()</td>
+                <td>@item.UserAgent</td>
+                <td>@item.IPAddress</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

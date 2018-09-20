@@ -1,0 +1,26 @@
+﻿@model WebUI.Models.ProfileViewModel
+
+<h2 class="user-panel-title">Activity</h2>
+<p>Here is your recent activities. you can also clear this log as well as disable this feature from security settings. </p>
+<table class="data-table refferal-table no-footer">
+    <thead>
+        <tr>
+            <th style="width:200px">Login Time (local time)</th>
+            <th>User Agent</th>
+            <th style="width:100px">Ip Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.LoginHistorys != null && Model.LoginHistorys.Any())
+        {
+            foreach (var item in Model.LoginHistorys)
+            {
+                <tr>
+                    <td>@item.LoginTime.ToString()</td>
+                    <td>@item.UserAgent</td>
+                    <td>@item.IPAddress</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

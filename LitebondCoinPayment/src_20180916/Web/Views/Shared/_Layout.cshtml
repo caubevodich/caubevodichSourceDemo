@@ -1,0 +1,256 @@
+﻿@using WebUI.Helpers
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="LITEBOND is an escrow investment, litecoin and multifunctional online platform based on blockchain technology. There investors have the opportunity to support the community money on mutually beneficial.">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="images/favicon.png">
+    <!-- Site Title  -->
+    <title>@ViewBag.Title - Escrowing Of Litecoin</title>
+    <!-- Vendor Bundle CSS -->
+    <link rel="stylesheet" href="~/Content/userpanel/css/vendor.bundle.css?ver=100">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="~/Content/userpanel/css/style.css?ver=100">
+
+    <!-- Main styles for this application-->    
+    <link href="~/Content/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" />
+    <script type="text/javascript">
+        var crudServiceBaseUrl = '@ViewBag.ServiceBaseUrl';
+        var selectedIds = {};
+         var __currentUser = '@User.Identity.Name';
+    </script>
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+<body class="user-dashboard">
+
+    <div class="topbar">
+        <div class="topbar-md d-lg-none">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-between">
+                    <a href="#" class="toggle-nav">
+                        <div class="toggle-icon">
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                        </div>
+                    </a><!-- .toggle-nav -->
+
+                    <div class="site-logo">
+                        <a href="@Url.Action("Index", "Home")" class="site-brand">
+                            <img src="~/Content/userpanel/images/minilogo.png" alt="logo" >
+                        </a>
+                    </div><!-- .site-logo -->
+
+                    <div class="dropdown topbar-action-item topbar-action-user">
+                        <a href="#" data-toggle="dropdown"> <img class="icon" src="~/Content/userpanel/images/user-thumb-sm.png" alt="thumb"> </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="user-dropdown">
+                                <div class="user-dropdown-head">
+                                    <h6 class="user-dropdown-name">User Dashboard <span id="ReferralLinkUser"></span></h6>
+                                    <span class="user-dropdown-email">@User.Identity.Name</span>
+                                </div>
+                                <div class="user-dropdown-balance">
+                                    <h6>LITECOIN BALANCE</h6>
+                                    <h3><span id="litecoinBalance"></span> LTC</h3>
+                                   
+                                </div>
+                                
+                                <div class="gaps-1x"></div>
+                                <ul class="user-dropdown-links">
+                                    <li><a href="@Url.Action("Index", "Me")"><i class="ti ti-id-badge"></i>My Profile</a></li>
+                                    <li><a href="@Url.Action("Index", "Wallet")"><i class="ti ti-wallet"></i>Wallet</a></li>
+                                    <li><a href="@Url.Action("Index", "Comission")"><i class="ti ti-eye"></i>Activity</a></li>
+                                </ul>
+
+                                <ul class="user-dropdown-links">
+
+                                    <li>
+                                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <button class="btn btn-primary ti ti-power-off" style="width: 100%">
+                                                Logout
+                                            </button>
+                                        }
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .toggle-action -->
+                </div><!-- .container -->
+            </div><!-- .container -->
+        </div><!-- .topbar-md -->
+        <div class="container">
+            <div class="d-lg-flex align-items-center justify-content-between">
+                <div class="topbar-lg d-none d-lg-block">
+                    <div class="site-logo">
+                        <a href="@Url.Action("Index", "Home")" class="site-brand">
+                            <img src="~/Content/userpanel/images/minilogo.png" alt="logo" >
+                        </a>
+                    </div><!-- .site-logo -->
+                </div><!-- .topbar-lg -->
+
+                <div class="topbar-action d-none d-lg-block">
+                    <ul class="topbar-action-list">
+                        <li class="topbar-action-item topbar-action-link">
+                            <a href="@Url.Action("Index", "Home")"><em class="ti ti-home"></em> Go to homepage site</a>
+                        </li><!-- .topbar-action-item -->
+
+                        <li class="dropdown topbar-action-item topbar-action-language">
+                            <a href="#" data-toggle="dropdown"> EN <em class="ti ti-angle-down"></em> </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">EN</a></li>
+
+                            </ul>
+                        </li><!-- .topbar-action-item -->
+
+                        <li class="dropdown topbar-action-item topbar-action-user">
+                            <a href="#" data-toggle="dropdown"> <img class="icon" src="~/Content/userpanel/images/user-thumb-sm.png" alt="thumb"> </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="user-dropdown">
+                                    <div class="user-dropdown-head">
+                                        <h6 class="user-dropdown-name">User Dashboard <span id="ReferralLinkUser"></span></h6>
+                                        <span class="user-dropdown-email">@User.Identity.Name</span>
+                                    </div>
+                                    <div class="user-dropdown-balance">
+                                        <h6>LITECOIN BALANCE</h6>
+                                        <h3><span id="litecoinBalance2"></span><span> LTC</span></h3>
+                                        
+                                    </div>
+                                    <ul class="user-dropdown-links">
+                                        <li><a href="@Url.Action("Index", "Me")"><i class="ti ti-id-badge"></i>My Profile</a></li>
+                                        <li><a href="@Url.Action("Index", "Wallet")"><i class="ti ti-wallet"></i>Wallet</a></li>
+                                        <li><a href="@Url.Action("Index", "Comission")"><i class="ti ti-eye"></i>Activity</a></li>                                       
+                                    </ul>
+
+                                    <ul class="user-dropdown-links">
+                                        <li>
+                                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <button class="btn btn-primary ti ti-power-off" style="width: 100%">
+                                                    Logout
+                                                </button>
+                                            }
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li><!-- .topbar-action-item -->
+                    </ul><!-- .topbar-action-list -->
+                </div><!-- .topbar-action -->
+            </div><!-- .d-flex -->
+        </div><!-- .container -->
+    </div>
+    <!-- TopBar End -->
+
+
+    <div class="user-wraper">
+        <div class="container">
+            <div class="d-flex">
+                <div class="user-sidebar">
+                    <div class="user-sidebar-overlay"></div>
+                    <div class="user-box d-none d-lg-block">
+                        <div class="user-image">
+                            <img src="~/Content/userpanel/images/user-thumb-lg.png" alt="thumb">
+                        </div>
+                        <h6 class="user-name">User Dashboard</h6>
+                        <div class="user-uid">Unique ID: <span id="ReferralLinkUser2"></span></div>
+                        <!--   <ul class="btn-grp guttar-10px">
+                                    <li><a href="#" class="btn btn-xs btn-warning">Confirm Email</a></li>
+                                    <li><a href="kyc.html" class="btn btn-xs btn-warning">KYC Pending</a></li>
+                                </ul>-->
+                    </div><!-- .user-box -->
+                    <ul class="user-icon-nav">
+                        <li><a href="@Url.Action("Index", "Dashboard")"><em class="ti ti-dashboard"></em>Dashboard</a></li>
+                        <li><a href="@Url.Action("Index", "Me")"><em class="ti ti-user"></em>Account</a></li>
+                        <li><a href="@Url.Action("Index", "Wallet")"><em class="ti ti-control-shuffle"></em>Wallet</a></li>
+                        <li><a href="@Url.Action("Index", "Referral")"><em class="ti ti-infinite"></em>Referral</a></li>
+                        <li><a href="@Url.Action("Index", "Comission")"><em class="ti ti-pie-chart"></em>Comission</a></li>
+                        @if (@User.Identity.Name == "leduchuy1411@gmail.com")
+                        {
+                            <li><a href="@Url.Action("Index", "Admin")"><i class="ti ti-briefcase"></i>Admin</a></li>
+                        }
+
+                    </ul><!-- .user-icon-nav -->
+                    <div class="user-sidebar-sap"></div><!-- .user-sidebar-sap -->
+                    <ul class="user-nav">
+                        <li><a href="how-to.html">How to buy?</a></li>
+                        <li><a href="faq.html">Faqs</a></li>
+                        <li><a href="~/doc/download/WHITEPAPER.pdf">Whitepaper</a></li>
+                        <li>Contact Support<span>info.litebond@gmail.com</span></li>
+                    </ul><!-- .user-nav -->
+                    <div class="d-lg-none">
+                        <div class="user-sidebar-sap"></div>
+                        <div class="gaps-1x"></div>
+                        <ul class="topbar-action-list">
+                            <li class="topbar-action-item topbar-action-link">
+                                <a href="@Url.Action("Index", "Home")"><em class="ti ti-home"></em> Go to main site</a>
+                            </li><!-- .topbar-action-item -->
+                            <li class="dropup topbar-action-item topbar-action-language">
+                                <a href="#" data-toggle="dropdown" aria-haspopup="true"> EN <em class="ti ti-angle-up"></em> </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">EN</a></li>
+                                </ul>
+                            </li><!-- .topbar-action-item -->
+                        </ul><!-- .topbar-action-list -->
+                    </div>
+                </div><!-- .user-sidebar -->
+
+                <div class="user-content">
+                    <div class="user-panel">
+                        @Html.Partial("_Notification")
+                        @RenderBody()
+                    </div><!-- .user-panel -->
+                </div><!-- .user-content -->
+            </div><!-- .d-flex -->
+        </div><!-- .container -->
+    </div>
+    <!-- UserWraper End -->
+
+
+    <div class="footer-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <span class="footer-copyright">Copyright © 2018, <a href="#">LiteBond - EOL</a>.  All Rights Reserved.</span>
+                </div><!-- .col -->
+                <div class="col-md-5 text-md-right">
+                    <ul class="footer-links">
+                        <li><a href="~/doc/download/Privacy_Policy_of_LiteBond.pdf">Privacy Policy</a></li>
+                        <li><a href="~/doc/download/TERMS_OF_SERVICE.pdf">Terms of Service</a></li>
+                    </ul>
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div>
+    <!-- FooterBar End -->
+    <!-- JavaScript (include all script here) -->
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+
+    <script src="~/Scripts/kjua-0.1.1.min.js"></script>
+
+    <script src="~/Content/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="~/Content/userpanel/jquery.bundle.js?ver=100"></script>
+    <script src="~/Content/userpanel/script.js?ver=100"></script>
+
+
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>

@@ -1,0 +1,272 @@
+﻿@model Core.Domain.Models.WalletModel
+@{
+    ViewBag.Title = "Wallet";
+}
+
+<!-- new template -->
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="tile-item tile-primary">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">LITECOIN BALANCE</h6>
+            <h1 class="tile-info">@Model.AvailableBalance LTC</h1>
+        </div>
+    </div><!-- .col -->
+    <div class="col-md-6">
+        <div class="tile-item tile-primary">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">CURRENT LITECOIN PRICE</h6>
+            <h1 class="tile-info" id="ltcPrice3"></h1>
+        </div>
+    </div><!-- .col -->
+</div>
+
+<div class="col-sm-12 col-lg-12">
+    @if (string.IsNullOrEmpty(Model.Address))
+    {
+        <button class="btn btn-block btn-success" id="btnCreateLtcAddressWallet" style="width: 100%">CREATE LITECOIN ADDRESS WALLET</button>
+    }
+</div>
+
+
+@if (!string.IsNullOrEmpty(Model.Address))
+{
+    <h1>Deposit @Model.Symbol</h1>
+    <h5>Deposit Details Address</h5>
+    <div class="tranx-payment-details">
+        <p>
+            Hi, This is your address : <strong>@Model.Address</strong> and It's <strong>UNIQUE</strong>
+            <br>You will send <strong>LITECOIN (LTC)</strong> once paid.
+        </p>
+        <h6>Please make your deposit to the bellow Address</h6>
+        <div class="tranx-payment-info">
+            <span class="tranx-copy-feedback copy-feedback"></span>
+            <em class="fas fa-link"></em>
+            <input type="text" class="tranx-payment-address copy-address" value="@Model.Address" disabled="">
+            <a href="#" class="tranx-payment-copy copy-trigger"><em class="ti ti-files"></em></a>
+        </div><!-- .tranx-payment-info -->
+        <br />
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="tranx-info-qr">
+                    <h5>OR Scan bellow QR Code to pay</h5>
+                    <fieldset>
+                        <div id="qrcode"></div>
+                        <br />
+                        <input type="hidden" id="__ltcAddress" value="@Model.Address" />
+                    </fieldset>
+                    <div class="gaps-4x"></div>
+                </div>
+            </div><!-- .col -->
+            <div class="col-sm-8">
+                <div class="note note-info">
+                    <em class="fas fa-info-circle"></em>
+                    <p>Do not make payment through exchange (Kraken, Bitfinex, Binance, etc). You can use MetaMask, Conomi or others wallets etc.</p>
+                </div>
+                <div class="gaps-1x"></div>
+                <div class="note note-danger">
+                    <em class="fas fa-info-circle"></em>
+                    <p>In case you send a different amount LTC, the number of LTC tokens will update accordingly.</p>
+                </div>
+            </div><!-- .col -->
+        </div><!-- .row -->
+    </div>
+
+    <!-- LTC Deposit History -->
+    <h4>LTC Deposit History</h4>
+    <table id="depositHistoryTable" class="data-table tranx-table" style="width:100%">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>TxId</th>
+                <th>Status</th>
+                <th style="text-align:center">Confirmations</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{ var index3 = 0;}
+            @foreach (var item in Model.Transactions.Where(x => x.Type == true))
+            {
+                var amount = (float)item.Amount;
+                index3++;
+                <tr>
+                    <td>@index3</td>
+                    <td>@item.CreatedAt.ToShortDateString()</td>
+                    <td>@amount LTC</td>
+                    <td>
+                        @if (item.Status == "Confirmed")
+                        {
+                            <a target="_blank" href="https://chain.so/tx/@item.Network/@item.TxId">TXID</a>
+                        }
+                        else if (item.Status == "Pending")
+                        {
+                            <a target="_blank" href="https://chain.so/tx/@item.Network/@item.TxId">TXID</a>
+                        }
+                    </td>
+
+                    @if (item.Status == "Confirmed")
+                    {
+                        <td class="tranx-status tranx-status-approved">
+                            <span class="d-none">Approved</span>
+                            <em class="ti ti-check" data-toggle="tooltip" data-placement="bottom" title="Approved"></em>
+                        </td>
+
+                    }
+                    else if (item.Status == "Cancel")
+                    {
+                        <td class="tranx-status tranx-status-cancled">
+                            <span class="d-none">Canceled</span>
+                            <em class="ti ti-close" data-toggle="tooltip" data-placement="bottom" title="Canceled"></em>
+                        </td>
+                    }
+                    else
+                    {
+                        <td class="tranx-status tranx-status-pending">
+                            <span class="d-none">Pending</span>
+                            <em class="ti ti-alert" data-toggle="tooltip" data-placement="bottom" title="Pending"></em>
+                        </td>
+                    }
+
+                        <td style="text-align:center">
+                            @if (item.Status == "Confirmed")
+                            {
+                                <a href="#" class="btn btn-primary btn-xs clear-activity" onclick="getConfirm(@item.Id)">@item.TotalConfirm confirmations</a>
+                            }
+                            else if (item.Status == "Pending")
+                            {
+                                <a href="#" class="btn btn-primary btn-xs clear-activity" onclick="getConfirm(@item.Id)">@item.TotalConfirm confirmations</a>
+                            }
+                            else
+                            {
+                                <a href="#" class="btn btn-primary btn-xs clear-activity">0 confirmations</a>
+                            }
+                        </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <br /><br />
+
+    <h1>Withdraw LTC</h1>
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="input-item input-with-label">
+                        <label for="full-name" class="input-item-label">Litecoin Address</label>
+                        <input class="input-bordered" type="text" id="LtcAddress" name="LtcAddress" placeholder="Enter Your Address" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="input-item input-with-label">
+                        <label for="full-name" class="input-item-label">Litecoin Amount</label>
+                        <input class="input-bordered" type="number" id="Amount" name="Amount" placeholder="Enter Your Amount" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="input-item input-with-label">
+                        <label for="full-name" class="input-item-label">Two-Factor Security (2FA)</label>
+                        <input class="input-bordered" type="text" id="TwoFactor" name="TwoFactor" placeholder="Enter 2FA Token" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-actions">
+                        <button type="button" id="btnWidthdraw" class="btn btn-primary">OK</button>&nbsp;&nbsp;
+                        Fee: 5%
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+
+    <h4>LTC Withdraw History</h4>
+    <table id="withdrawHistoryTable" class="data-table tranx-table" style="width:100%">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Date</th>
+                <th class="tranx-amount">Amount</th>
+                <th class="tranx-no">TxId</th>
+                <th class="tranx-status">Status</th>
+                <th class="tranx-token" style="text-align:center">Confirmations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ var index4 = 0;}
+            @foreach (var item in Model.Transactions.Where(x => x.Type == false))
+            {
+                index4++;
+                var amount = (float)item.Amount;
+                <tr>
+                    <td>@index4</td>
+                    <td>@item.CreatedAt.ToShortDateString()</td>
+                    <td>@amount LTC</td>
+                    <td>
+                        @if (item.Status == "Confirmed")
+                        {
+                            <a target="_blank" href="https://chain.so/tx/@item.Network/@item.TxId">TXID</a>
+                        }
+                    </td>
+
+                    @if (item.Status == "Confirmed")
+                    {
+                        <td class="tranx-status tranx-status-approved">
+                            <span class="d-none">Approved</span>
+                            <em class="ti ti-check" data-toggle="tooltip" data-placement="bottom" title="Approved"></em>
+                        </td>
+
+                    }
+                    else if (item.Status == "Cancel")
+                    {
+                        <td class="tranx-status tranx-status-cancled">
+                            <span class="d-none">Canceled</span>
+                            <em class="ti ti-close" data-toggle="tooltip" data-placement="bottom" title="Canceled"></em>
+                        </td>
+                    }
+                    else
+                    {
+                        <td class="tranx-status tranx-status-pending">
+                            <span class="d-none">Pending</span>
+                            <em class="ti ti-alert" data-toggle="tooltip" data-placement="bottom" title="Pending"></em>
+                        </td>
+                    }
+
+                    <td style="text-align:center">
+                        @if (item.Status == "Confirmed")
+                        {
+                            <a href="#" class="btn btn-primary btn-xs clear-activity" onclick="getConfirm(@item.Id)">@item.TotalConfirm confirmations</a>
+                        }
+                        else
+                        {
+                            <a href="#" class="btn btn-primary btn-xs clear-activity">0 confirmations</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@section Scripts{
+    <script type="text/javascript">
+
+
+
+    </script>
+}

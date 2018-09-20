@@ -1,0 +1,196 @@
+﻿@model Core.Domain.Models.NetworkIncomeModel
+@{
+    ViewBag.Title = "Network Income";
+}
+
+
+<!-- new template -->
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index")">Escrow Income</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active show" data-toggle="tab" href="">@ViewBag.Title</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="tile-item tile-primary">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">TOTAL INCOME NETWORK</h6>
+            <h1 class="tile-info">@Model.TotalIncomeNetwork LTC</h1>
+        </div>
+    </div><!-- .col -->
+    <div class="col-md-6">
+        <div class="tile-item tile-primary">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">TOTAL INCOME REFERRAL</h6>
+            <h1 class="tile-info">@Model.TotalIncomeReferral LTC</h1>
+        </div>
+    </div><!-- .col -->
+    <div class="col-md-6">
+        <div class="tile-item tile-primary">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">TOTAL REFERRAL</h6>
+            <h1 class="tile-info">@Model.TotalReferral REF</h1>
+        </div>
+    </div><!-- .col -->
+    <div class="col-md-6">
+        <div class="tile-item tile-primary">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">TOTAL NETWORK</h6>
+            <h1 class="tile-info">@Model.TotalNetwork LTC</h1>
+        </div>
+    </div><!-- .col -->
+</div>
+
+<h6 class="payment-summary-title">INCOME NETWORK</h6>
+<div class="d-flex guttar-20px">
+    <div>
+        <input style="width:300px;" class="input-bordered" type="number" name="Amount" id="Amount" placeholder="@Model.TotalNetwork LTC" disabled>
+    </div>
+    <div>
+        <button style="width:auto;" type="submit" id="btnIncome" class="btn btn-primary" onclick="getIncomeToBalance()">Get Balance</button>
+    </div>
+</div>
+
+<br />
+<div class="gaps-1x"></div>
+<h4>History Receive Income Referral</h4>
+<table id="tbHistoryReceiveIncomeReferral" class="data-table refferal-table">
+    <thead>
+        <tr>
+            <th class="refferal-date" style="text-align:center"><span>Date</span></th>
+            <th class="refferal-bonus" style="text-align:center"><span>Amount</span></th>
+            <th class="refferal-tokens" style="text-align:center"><span>Referral</span></th>
+            <th style="text-align:center"><span>Status</span></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.HistoryReceiveIncomes)
+        {
+            var amount = @item.Amount.ToString().Replace(",", ".");
+            <tr>
+                <td style="text-align:center">@item.DateReceive.ToShortDateString()</td>
+                <td style="text-align:center">@amount LTC</td>
+                <td style="text-align:center">@item.Referral</td>
+                @if (item.Status == true)
+                {
+                    <td style="text-align:center">
+                        <span class="badge badge-pill badge-warning">Received</span>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a href="#" class="btn btn-primary btn-xs clear-activity" onclick="UpdateStatusReferralIncome(@item.Id,@amount)">Receive</a>                        
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<div class="gaps-1x"></div>
+<h4>History Network Income</h4>
+<table id="tbHistoryNetwork" class="data-table refferal-table">
+    <thead>
+        <tr>
+            <th style="text-align:center">Date</th>
+            <th style="text-align:center">Amount</th>
+            <th style="text-align:center">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.HistoryNetworkIncomes)
+        {
+            var amount = @item.Amount.ToString().Replace(",", ".");
+            <tr>
+                <td style="text-align:center">@item.DateReceive.ToShortDateString()</td>
+                <td style="text-align:center">@amount LTC</td>
+                @if (item.Status == true)
+                {
+                    <td style="text-align:center"><span class="badge badge-pill badge-warning">Received</span></td>
+                }
+                else
+                {
+                    <td>
+                        <a href="#" class="btn btn-primary btn-xs clear-activity" onclick="UpdateStatusNetworkIncome(@item.Id,@amount)">Receive</a>                        
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+<div class="gaps-1x"></div>
+<h4>History Get Income Balance</h4>
+<table id="tbHistoryGetIncomeBalance" class="data-table refferal-table" style="width:100%">
+    <thead>
+        <tr>
+            <th style="text-align:center">Date</th>
+            <th style="text-align:center">Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.HistoryGetIncomeBalances)
+        {
+            var amount = @item.Amount.ToString().Replace(",", ".");
+            <tr>
+                <td style="text-align:center">@item.DateGetBalance.ToShortDateString()</td>
+                <td style="text-align:center">@amount LTC</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+@section Scripts{
+
+    @*<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#tbHistoryReceiveIncomeReferral').DataTable({
+                "paging": false,
+                "searching": false,
+                "bLengthChange": false,
+                "order": [[1, "desc"]],
+                "bInfo": false
+            });
+        });
+
+        $(document).ready(function () {
+            $('#tbHistoryNetwork').DataTable({
+                "paging": false,
+                "searching": false,
+                "bLengthChange": false,
+                "order": [[1, "desc"]],
+                "bInfo": false
+            });
+        });
+
+        $(document).ready(function () {
+            $('#tbHistoryGetIncomeBalance').DataTable({
+                "paging": false,
+                "searching": false,
+                "bLengthChange": false,
+                "order": [[1, "desc"]],
+                "bInfo": false
+            });
+        });*@
+
+
+    </script>
+}

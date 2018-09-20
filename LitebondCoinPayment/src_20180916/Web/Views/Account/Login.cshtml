@@ -1,0 +1,95 @@
+﻿@model WebUI.Models.LoginViewModel
+@using WebUI.Helpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="LITEBOND is an escrow investment, litecoin and multifunctional online platform based on blockchain technology. There investors have the opportunity to support the community money on mutually beneficial.">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="~/Content/userpanel/images/favicon.ico">
+    <!-- Site Title  -->
+    <title>Login - Escrowing Of Litecoin</title>
+    <!-- Vendor Bundle CSS -->
+    <link rel="stylesheet" href="~/Content/userpanel/theme/vendor.bundle.css?ver=142">
+    <!-- Custom styles for this template -->
+    <link href="~/Content/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/userpanel/theme/style.css?ver=142">
+    <link rel="stylesheet" href="~/Content/userpanel/theme/theme.css?ver=142">
+
+</head>
+
+<body class="theme-light" data-spy="scroll" data-target="#mainnav" data-offset="80">
+
+    <div class="user-page d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-8 col-sm-8  text-center">
+                    <div class="user-page-box">
+                        <div class="user-logo">
+                            <a href="#">
+                                <img src="~/Content/userpanel/images/favicon.ico" srcset="~/Content/userpanel/images/favicon.ico 2x" alt="icon">
+                            </a>
+                        </div>
+                        <h5>Login to Your Account</h5>
+                        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", htmlAttributes: new { @class = "alert alert-danger" })
+                            <form action="#" class="login-form">
+                                <div class="input-item">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "input-line-simple", @placeholder = "Your Email" })
+
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "small-heading" })
+                                </div>
+                                <div class="input-item">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "input-line-simple", @placeholder = "Password" })
+
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "small-heading" })
+                                </div>
+                                <div class="input-item">
+                                    @Html.reCaptcha()
+                                </div>
+                                <div class="gaps"></div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button type="submit" id="btnSubmit" class="btn btn-sm">Log in</button>
+                                    <a href="@Url.Action("ForgotPassword")" class="simple-link">Forgot password?</a>
+                                </div>
+                            </form>
+                        }
+                    </div>
+                    <div class="gaps size-2x"></div>
+                    <div class="form-note">
+                        Not a member? <a href="@Url.Action("Register")">Sign up now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader !remove please if you do not want -->
+    <div id="preloader">
+        <div id="loader"></div>
+        <div class="loader-section loader-top"></div>
+        <div class="loader-section loader-bottom"></div>
+    </div>
+    <!-- Preloader End -->
+    <!-- JavaScript (include all script here) -->
+    <!-- Bootstrap and necessary plugins-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+
+
+    <script src="~/Content/userpanel/theme/jquery.bundle.js?ver=142"></script>
+    <script src="~/Content/userpanel/theme/script.js?ver=142"></script>
+
+    <script src="~/Content/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="~/Scripts/apps/login.js"></script>
+</body>
+</html>

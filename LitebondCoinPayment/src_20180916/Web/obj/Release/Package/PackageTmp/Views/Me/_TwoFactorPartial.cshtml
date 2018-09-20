@@ -1,0 +1,149 @@
+﻿@model WebUI.Models.ProfileViewModel
+
+
+
+<div class="alert alert-info">
+    <h4>TWO-FACTOR AUTHENTICATION</h4>
+    Greatly increase security by requiring both your password and another form of authentication.
+</div>
+<h4>
+    Status:
+    @if (Model.TwoFactorEnabled)
+    {
+        <span class="text-success">
+            Enabled
+        </span>
+    }
+    else
+    {
+        <span class="text-warning">
+            Disabled
+        </span>
+    }
+</h4>
+
+@if (Model.TwoFactorEnabled)
+{
+    using (Html.BeginForm("DisabledTwoFactor", "Me", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <input type="hidden" value="False" name="EnabledOrDisabledTwoFactor" />
+        <div class="form-group">
+            <h4>Disable 2FA</h4>
+            <p class="ng-scope">Disabling two-factor authentication will reset your secret key and delete all of your API keys.</p>
+        </div>
+        <div class="form-group">
+            <label class="input-item-label">Authentication Code</label>            
+            <input name="TwoFactorCode" type="text" class="input-bordered" required="" placeholder="" style="">
+        </div>
+        <div class="form-group">
+            <label class="input-item-label">Your password</label>            
+            <input name="Password" type="password" class="input-bordered" required="" placeholder="" style="">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">
+                <!-- ngIf: vm.isProcessing -->
+                Disable 2FA
+            </button>
+        </div>
+    }
+
+
+}
+else
+{
+
+    <div class="disabled-content">
+        <h4>
+            How to Enable Two-Factor Authentication
+        </h4>
+        <!--Step 1-->
+        <div class="disabled-item">
+            <h5>
+                1. Download Google Authenticator on your mobile device
+            </h5>
+            <div class="thumbnail google-au">
+                <div class="media">
+                    <div class="media-left">
+
+                        <img src="/content/images/google-authenticator.png" class="media-object" alt="Google Authenticator">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading" style="margin-top:10px"> Google Authenticator</h4>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="app-store text-center">
+                <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank">
+                    <img src="/content/images/download-apple-store.png" alt="Download on the App Store">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank">
+                    <img src="/content/images/download-google-store.png" alt="Get it on Google Play">
+                </a>
+            </div>
+        </div>
+        <!--Step 2-->
+        <div class="disabled-item">
+            <h5>
+                2. Use Google Authenticator to scan the QRCode
+            </h5>
+
+            <div class="text-center">
+                <img src="@Model.QrCodeSetupImageUrl">
+            </div>
+        </div>
+        <!--Step 3-->
+        <div class="disabled-item back-up step-five">
+            <div class="clearfix">
+                <h5>
+                    3. Back up your Secret Key
+                </h5>
+                <p>Reseting your two - factor authentication requires opening a support ticket and may take up to 48 hours to address.</p>
+            </div>
+            <div class="copy-form">
+                <h4>Security Key</h4>
+
+                <div class="refferal-info">
+                    <span class="refferal-copy-feedback copy-feedback"></span>
+                    <em class="fas fa-link"></em>
+                    <input type="text" class="refferal-address copy-address" value="@Model.ManualEntryKey" disabled>
+                    <a href="#" class="refferal-copy copy-trigger"><em class="ti ti-files"></em></a>
+                </div>
+
+            </div>
+        </div>
+        <br />
+        <!--Step 6 iOS & 768px & 1024px & Step 4-->
+        <div class="disabled-item step-six">
+            <div class="clearfix">
+                <h5>
+                    4. Enter the 6 digit authentication code provided by Google Authenticator
+                </h5>
+            </div>
+            <div class="form-group">
+                <label for="nf-email">Authentication Code</label>
+                @using (Html.BeginForm("EnabledTwoFactor", "Me", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="input-group">
+                        <input type="hidden" value="True" name="EnabledOrDisabledTwoFactor" />
+                        <input type="text" id="TwoFactorCode" name="TwoFactorCode" class="input-bordered" placeholder="" required>
+                        <div class="note note-plane note-danger">
+                            <em class="fas fa-info-circle"></em>
+                            <p>Important! In case of loss of access to the mobile application, you can regain it using mobile number that specified in your profile. If you don't save that, we will not able to help you to regain.</p>
+                        </div>
+                        <br />
+                        <span class="input-group-append">
+                            <button type="submit" class="btn btn-primary">Enable 2FA</button>
+                        </span>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+}
+
+

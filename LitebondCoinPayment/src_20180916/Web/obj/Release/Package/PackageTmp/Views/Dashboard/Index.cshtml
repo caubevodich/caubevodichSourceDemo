@@ -1,0 +1,126 @@
+﻿@model Core.Domain.Models.DashboardModel
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+
+<!-- new template -->
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="tile-item tile-primary">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">LITECOIN BALANCE</h6>
+            <h1 class="tile-info">@Model.Balance LTC</h1>
+        </div>
+    </div><!-- .col -->
+    <div class="col-md-6">
+        <div class="tile-item tile-light">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">YOUR TOTAL ESCROW</h6>
+            <ul class="tile-info-list">
+                <li><span>@Model.Deposit LTC</span></li>
+            </ul>
+        </div>
+    </div><!-- .col -->
+    <div class="col-md-6">
+        <div class="tile-item tile-light">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">YOUR TOTAL REFERRAL</h6>
+            <ul class="tile-info-list">
+                <li><span>@Model.TotalReferral REF</span></li>
+            </ul>
+        </div>
+    </div><!-- .col -->
+    <div class="col-md-6">
+        <div class="tile-item tile-light">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">YOUR LEVEL</h6>
+            <ul class="tile-info-list">
+                <li><span>L @Model.Level</span></li>
+            </ul>
+        </div>
+    </div><!-- .col -->
+</div>
+
+<div class="info-card info-card-bordered">
+    <div class="row align-items-center">
+        <div class="col-sm-3">
+            <div class="info-card-image">
+                <img src="~/Content/userpanel/images/vector-a.png" alt="vector">
+            </div>
+            <div class="gaps-2x d-md-none"></div>
+        </div>
+        <div class="col-sm-9">
+            <h4>Thank you for your interest towards to our Crypto Projects : LITEBOND</h4>
+            <p>You can escrow LTC in <a href="@Url.Action("Index", "Comission")">Escrowing</a> section.</p>
+            <p>You can get quick notice of the project in our Telegram: <a href="htts://t.me/litebond">htts://t.me/litebond</a></p>
+            <p>Don’t hesitate to invite your friends! If your invited referral escrowed litecoin then you get 10% bonus.</p>
+        </div>
+    </div>
+</div>
+
+<h6>Your referral link</h6>
+<div class="refferal-info">
+    <span class="refferal-copy-feedback copy-feedback"></span>
+    <em class="fas fa-link"></em>
+    <input type="text" class="refferal-address copy-address" value="@Model.ReferralLink" disabled>
+    <a href="#" class="refferal-copy copy-trigger"><em class="ti ti-files"></em></a>
+</div><!-- .refferal-info -->
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="tile-item tile-light">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">SERVER TIME</h6>
+            <ul class="tile-info-list">
+                <li><span>@DateTime.UtcNow.ToString("U", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="tile-item tile-light">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">CURRENT LITECOIN PRICE</h6>
+            <ul class="tile-info-list">
+                <li><span>1 LTC</span>LTC</li>
+                <li><span>=</span>~</li>
+                <li><span id="ltcPrice2"></span>USD</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script type="text/javascript">
+        function doCopy() {
+            /* Get the text field */
+            var copyText = document.getElementById("referrallink");
+
+            /* Select the text field */
+            copyText.select();
+
+            /* Copy the text inside the text field */
+            document.execCommand("copy");
+
+            /* Alert the copied text */
+            swal({
+                title: 'Copied',
+                type: 'success',
+                confirmButtonText: 'Ok'
+            });
+        }
+
+        //getLtcPriceUSD2();
+        //function getLtcPriceUSD2() {
+        //    $.get('https://chain.so/api/v2/get_price/LTC/USD', function (response) {
+        //        const priceLtc = response.data.prices[0].price;
+        //        $('#ltcPrice2').text('$' + priceLtc);
+        //    });
+        //}
+
+    </script>
+}

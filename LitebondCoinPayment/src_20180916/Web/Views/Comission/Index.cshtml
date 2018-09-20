@@ -1,0 +1,254 @@
+﻿@model Core.Domain.Models.ProfitIncomeModel
+@{
+    ViewBag.Title = "Escrow Income";
+}
+
+<!-- new template -->
+<ul class="nav nav-tabs nav-tabs-line" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active show" data-toggle="tab" href="">@ViewBag.Title</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link"  href="@Url.Action("NetworkIncome")">Network Income</a>
+    </li>    
+</ul>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="tile-item tile-primary">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">TOTAL ESCROW</h6>
+            <h1 class="tile-info">@Model.TotalDeposit LTC</h1>
+        </div>
+    </div><!-- .col -->
+    <div class="col-md-6">
+        <div class="tile-item tile-primary">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">TOTAL PROFIT</h6>
+            <h1 class="tile-info">@Model.TotalProfit LTC</h1>
+        </div>
+    </div><!-- .col -->
+    <div class="col-md-6">
+        <div class="tile-item tile-primary">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">CURRENT PROFIT</h6>
+            <h1 class="tile-info">@Model.CurrentProfit LTC</h1>
+        </div>
+    </div><!-- .col -->
+    <div class="col-md-6">
+        <div class="tile-item tile-primary">
+            <div class="tile-bubbles"></div>
+            <h6 class="tile-title">YOUR LEVEL</h6>
+            <h1 class="tile-info">L @Model.Level</h1>
+        </div>
+    </div><!-- .col -->
+</div>
+
+<h6 class="payment-summary-title">Escrow Purchase</h6>
+<div class="d-flex guttar-20px">
+    <div>
+        <input style="width:300px;" class="input-bordered" type="number" name="amountPurchase" id="amountPurchase" placeholder="Input your LTC Escrow" pattern="[0-9]+([,\.][0-9]+)?">
+    </div>
+    <div>
+        <button style="width:auto;" type="submit" id="btnPurchase" class="btn btn-primary">Purchase</button>
+    </div>
+</div>
+
+<br />
+
+
+<div class="progress-card">
+    <h4>Escrowing Progress</h4>
+    @{ var index6 = 0;}
+    @foreach (var item in Model.HistoryDepositModels)
+    {
+        var amount = (float)item.Amount;
+        var perProcess = (int)@item.PercentProcessing;
+        var totalprofitdaily = (double)@item.TotaProfitDailyAmountReceived;
+        index6++;
+        <ul class="progress-info">
+            <li>Escrow @index6 : @amount LTC</li>
+            <li>Total Day : @item.TotalDay Days</li>
+            <li>Processing : @perProcess%</li>
+        </ul>
+        <div class="progress-bar">
+            @if (DateTime.UtcNow.ToShortDateString() == @item.DateEnd.ToShortDateString())
+            {
+                <div class="progress-hcap" style="width:90%">
+                    <div>DateEnd<span>@item.DateEnd.ToShortDateString()</span></div>
+                </div>
+                <div class="progress-scap" style="width:50%">
+                    <div>Profit Daily Received<span>@totalprofitdaily LTC</span></div>
+                </div>
+                <div class="progress-psale" style="width:10%">
+                    <div>DateStart<span>@item.DateCreate.ToShortDateString()</span></div>
+                </div>
+                <div class="progress-percent" style="width:100%"></div>
+            }
+            else
+            {
+                <div class="progress-hcap" style="width:90%">
+                    <div>DateEnd<span>@item.DateEnd.ToShortDateString()</span></div>
+                </div>
+                <div class="progress-scap" style="width:50%">
+                    <div>Profit Daily Received<span>@totalprofitdaily LTC</span></div>
+                </div>
+                <div class="progress-psale" style="width:10%">
+                    <div>DateStart<span>@item.DateCreate.ToShortDateString()</span></div>
+                </div>
+                <div class="progress-percent" style="width:@perProcess%"></div>
+
+            }
+        </div>
+    }
+</div>
+
+<br />
+
+<h6 class="payment-summary-title">Get Profit To Balance</h6>
+<div class="d-flex guttar-20px">
+    <div>
+        <input style="width:300px;" class="input-bordered" type="number" name="profit" id="profit" placeholder="@Model.CurrentProfit LTC" disabled>
+    </div>
+    <div>       
+        <button type="submit" id="btnGetToBalanceProfit" class="btn btn-primary" onclick="getProfitToBalance()">Get Balance</button>
+    </div>
+</div>
+
+<br />
+<div class="gaps-1x"></div>
+<h4>History Deposit</h4>
+<table id="tbHistoryDeposit" class="data-table tranx-table">
+    <thead>
+        <tr>
+            <th><span>No</span></th>
+            <th class="refferal-date"><span>Date</span></th>
+            <th class="refferal-bonus"><span>Amount</span></th>
+            <th class="refferal-tokens"><span>Total Day</span></th>
+            <th><span>Status</span></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{ var index7 = 0;}
+        @foreach (var item in Model.HistoryDepositModels)
+        {
+            index7++;
+            <tr>
+                <td>@index7</td>
+                <td class="refferal-date">@item.DateCreate.ToShortDateString()</td>
+                <td class="refferal-bonus">@item.Amount LTC</td>
+                <td>@item.TotalDay</td>
+                @if (item.Status == true)
+                {
+                    <td>Processing</td>
+                }
+                else
+                {
+                    <td>Expired</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<div class="gaps-1x"></div>
+<h4>History Receive Profit Daily</h4>
+<table id="tbProfitDaily" class="data-table tranx-table">
+    <thead>
+        <tr>
+            <th class="refferal-date">Date</th>
+            <th class="refferal-name" >Escrow</th>
+            <th class="refferal-bonus">Profit</th>
+            <th style="text-align:center">Status</th>
+        </tr>
+    </thead>
+    <tbody>     
+        @foreach (var item in Model.HistoryReceiveProfits)
+        {
+            var amountDaily = @item.AmountDaily.ToString().Replace(",", ".");
+            var profitOfDeposit = (float)@item.ProfitOfDeposit;
+           
+        <tr>
+            <td class="refferal-date">@item.DateReceive.ToShortDateString()</td>
+            <td class="refferal-name">@profitOfDeposit LTC</td>
+            <td class="refferal-bonus">@item.AmountDaily LTC</td>
+            @if (item.Status == true)
+            {
+                <td style="text-align:center"><span class="badge badge-pill badge-warning">Received</span></td>
+            }
+            else
+            {
+                <td style="text-align:center">
+                    <a href="#" class="btn btn-primary btn-xs clear-activity" onclick="UpdateStatusReceiveProfit(@item.Id,@amountDaily)">Receive</a>
+                </td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+<div class="gaps-1x"></div>
+<h4> History Get Profit To Balance</h4>
+<table id="tbHistoryGetProfitToBalance" class="data-table refferal-table" style="width:100%">
+    <thead>
+        <tr>
+            <th style="text-align:center">No</th>
+            <th style="text-align:center">Date</th>
+            <th style="text-align:center">Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var index9 = 0;}
+        @foreach (var item in Model.HistoryGetProfitBalances)
+        {
+            index9++;
+            <tr>
+                <td style="text-align:center">@index9</td>
+                <td style="text-align:center">@item.DateGetBalance.ToShortDateString()</td>
+                <td style="text-align:center">@item.Amount LTC</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    @*<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#tbProfitDaily').DataTable({
+                "paging": false,
+                "searching": false,
+                "bLengthChange": false,
+                "order": [[1, "desc"]],
+                "bInfo": false
+            });
+        });
+
+        $(document).ready(function () {
+            $('#tbHistoryDeposit').DataTable({
+                "paging": false,
+                "searching": false,
+                "bLengthChange": false,
+                "bInfo": false
+            });
+        });
+
+        $(document).ready(function () {
+            $('#tbHistoryGetProfitToBalance').DataTable({
+                "paging": false,
+                "searching": false,
+                "bLengthChange": false,
+                "bInfo": false
+            });
+        });*@
+
+
+
+    </script>
+}

@@ -1,0 +1,40 @@
+﻿@model WebUI.Models.ProfileViewModel
+
+<div class="card">
+    <div class="card-header">
+        <strong>Personal </strong>
+        <small>Information</small>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="name">Referral</label>
+                    <input readonly type="text" class="form-control" name="ReferralId" placeholder="Referral" value="Referral">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="name">Email</label>
+                    <input readonly type="email" class="form-control" name="Email" placeholder="Email" value="@User.Identity.Name">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="ccnumber">Phone Number</label>
+                    <input readonly type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Phone Number">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-sm btn-primary">
+            <i class="fa fa-dot-circle-o"></i> Save change
+        </button>
+    </div>
+</div>

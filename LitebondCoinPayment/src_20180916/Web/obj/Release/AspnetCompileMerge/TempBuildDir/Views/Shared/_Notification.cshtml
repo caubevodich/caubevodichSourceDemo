@@ -1,0 +1,17 @@
+﻿@if (TempData["Notification"] != null)
+{
+    var data = TempData["Notification"] as WebUI.Helpers.Notification;
+    var css = data.IsSuccess ? "success" : "danger";
+    var icon = data.IsSuccess ? "ace-icon fa fa-check" : "ace-icon fa fa-exclamation-circle";
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-@css alert-dismissible fade show" role="alert">
+                <strong>Infomation!</strong>  @Html.Raw(data.Message)
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+        </div>
+    </div>
+}

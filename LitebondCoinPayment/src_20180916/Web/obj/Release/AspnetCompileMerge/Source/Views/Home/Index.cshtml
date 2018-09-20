@@ -1,0 +1,936 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "LiteBond - Escrowing of Litecoin";
+}
+
+@{
+    Layout = null;
+    ViewBag.CoppyRight = "LiteBond - EOL";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>@ViewBag.Title</title>
+
+    <meta charset="utf-8" />
+    <meta name="author" content="@ViewBag.Title" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <link rel="stylesheet" href="/content/home2/css/bootstrap.min.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="/content/home2/css/animate.css">
+    <!-- jquery-ui.min css -->
+    <link rel="stylesheet" href="/content/home2/css/jquery-ui.min.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/content/home2/css/meanmenu.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/content/home2/css/owl.carousel.min.css">
+    <!-- bxslider css -->
+    <!--flaticon css -->
+    <link rel="stylesheet" href="/content/home2/css/flaticon.css">
+    <!-- font-awesome css -->
+    <link rel="stylesheet" href="/content/home2/css/font-awesome.min.css">
+    <link href="/content/home2/css/video-js.css" rel="stylesheet">
+    <!-- style css -->
+    <link rel="stylesheet" href="/content/home2/css/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/content/home2/css/responsive.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <script>
+        function recaptchaFormSubmitter() {
+            var form = document.getElementById("new_user");
+            $(form).submit();
+            grecaptcha.reset();
+        }
+    </script>
+</head>
+<body>
+    <a href="javascript:" id="return-to-top"><i class="fa fa-angle-up"></i></a>
+    <!-- preloader Start -->
+    <div id="preloader">
+        <div id="status">
+            <img src="~/content/home2/images/loader.gif" id="preloader_image" alt="loader">
+        </div>
+    </div>
+    <!--Header area start here-->
+    <div section-scroll="0" class="wd_scroll_wrap">
+        <header class="gc_main_menu_wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-6">
+                        <div class="logo-area">
+                            <a href=""><img src="/content/home2/images/logomain.png" alt="logo"></a>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu  Start -->
+                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-6">
+                        <div class="menu-area  hidden-xs">
+                            <nav class="wd_single_index_menu btc_main_menu">
+                                <ul>
+                                    <li class="active"><a href="0">Home</a></li>
+                                    <li><a href="1">About</a></li>
+                                    <li><a href="2">Why Choose LiteBond ?</a></li>
+                                    <li><a href="3">How It Works ?</a></li>
+                                    <li><a href="4">Commission</a></li>
+                                    <li><a href="5">Benefits</a></li>
+                                    <li><a href="6">Roles</a></li>
+                                    <li><a href="7">FAQ</a></li>
+                                </ul>
+                            </nav>
+
+                            <div class="login-btn">
+                                <a href="@Url.Action("Login","Account")" class="btn1"><i class="fa fa-user"></i><span>Sign In</span></a>
+
+                            </div>
+
+                        </div>
+                        <!-- mobile menu area start -->
+                        <div class="rp_mobail_menu_main_wrapper visible-xs">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div id="toggle">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.177 31.177" style="enable-background:new 0 0 31.177 31.177;" xml:space="preserve" width="25px" height="25px">
+                                        <g>
+                                        <g>
+                                        <path class="menubar" d="M30.23,1.775H0.946c-0.489,0-0.887-0.398-0.887-0.888S0.457,0,0.946,0H30.23    c0.49,0,0.888,0.398,0.888,0.888S30.72,1.775,30.23,1.775z" fill="#fff" />
+
+                                                </g>
+                                        <g>
+                                        <path class="menubar" d="M30.23,9.126H12.069c-0.49,0-0.888-0.398-0.888-0.888c0-0.49,0.398-0.888,0.888-0.888H30.23    c0.49,0,0.888,0.397,0.888,0.888C31.118,8.729,30.72,9.126,30.23,9.126z" fill="#fff" />
+
+                                                </g>
+                                        <g>
+                                        <path class="menubar" d="M30.23,16.477H0.946c-0.489,0-0.887-0.398-0.887-0.888c0-0.49,0.398-0.888,0.887-0.888H30.23    c0.49,0,0.888,0.397,0.888,0.888C31.118,16.079,30.72,16.477,30.23,16.477z" fill="#fff" />
+
+                                                </g>
+                                        <g>
+                                        <path class="menubar" d="M30.23,23.826H12.069c-0.49,0-0.888-0.396-0.888-0.887c0-0.49,0.398-0.888,0.888-0.888H30.23    c0.49,0,0.888,0.397,0.888,0.888C31.118,23.43,30.72,23.826,30.23,23.826z" fill="#fff" />
+
+                                                </g>
+                                        <g>
+                                        <path class="menubar" d="M30.23,31.177H0.946c-0.489,0-0.887-0.396-0.887-0.887c0-0.49,0.398-0.888,0.887-0.888H30.23    c0.49,0,0.888,0.398,0.888,0.888C31.118,30.78,30.72,31.177,30.23,31.177z" fill="#fff" />
+
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="sidebar">
+                                <h1><a href="#">@ViewBag.Title</a></h1>
+                                <div id="toggle_close">&times;</div>
+                                <div id='cssmenu' class="wd_single_index_menu">
+                                    <ul>
+                                        <li class="active"><a href="0">Home</a></li>
+                                        <li><a href="1">About</a></li>
+                                        <li><a href="2">Why Choose LiteBond ?</a></li>
+                                        <li><a href="3">How It Works ?</a></li>
+                                        <li><a href="4">Commission</a></li>
+                                        <li><a href="5">Benefits</a></li>
+                                        <li><a href="6">Roles</a></li>
+                                        <li><a href="7">FAQ</a></li>
+                                    </ul>
+                                </div>
+				<div class="login-btn">
+                                	<a href="@Url.Action("Login","Account")" class="btn1"><i class="fa fa-user"></i><span>Sign In</span></a>
+
+                            	</div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu  End -->
+
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--Header area end here-->
+        <!--Slider area start here-->
+        <section class="slider-area">
+            <canvas>
+
+                <script src="/content/home2/js/three.js"></script>
+                <script src="/content/home2/js/stats.min.js"></script>
+                <script src="/content/home2/js/Projector.js"></script>
+                <script src="/content/home2/js/CanvasRenderer.js"></script>
+            </canvas>
+            <div id="particles-js">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <div class="carousel-captions caption-1">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <div class="slider-content">
+
+                                                <h2 data-animation="animated bounceInLeft" class="">Escrowing Of Litecoin - Crowfunding &amp; <br>Based on the Blockchain technology</h2>
+                                                <div  class="buttons">
+                                                    <a href="" class="btn1" data-animation="animated bounceInUp">WHITEPAPER</a>
+                                                    <a href="" class="btn2" data-animation="animated bounceInUp">INTRODUCE</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 hidden-xs hidden-sm">
+
+                                            <div class="btc_slider_about_img" data-animation="animated bounceInDown">
+                                                <img src="/content/home2/images/main.png" alt="about_img">
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <canvas class="particles-js-canvas-el" width="1338" height="1071" style="width: 100%; height: 100%;"></canvas>
+            </div>
+        </section>
+        <!--Slider area end here-->
+        <section class="currency-area">
+            <div class="container-fliud">
+                <div class="row">
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--About area start here-->
+    <div section-scroll="1" class="wd_scroll_wrap">
+        <section class="about-area pd-t70 pd-b100 jarallax bg-img">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="about-content">
+                            <h2 class="f-40 fw-400">About The Project</h2>
+                            <p>LITEBOND is an escrow investment, litecoin and multifunctional online platform based on blockchain technology. There investors have the opportunity to support the community money on mutually beneficial.</p>
+                            <p>LITEBOND  is a unique service that allows individuals to access contribute from the comfort of their crypto-currencies and receive the supporting from community.</p>
+                            <p>LITEBOND  is a functional platform which allows each participant to keep money in a litecoin online wallet,  invest money, get a profit daily in a convenient currency.</p>
+                            <div class="buttons">
+                                <a href="" class="btn1">WHITEPAPER</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="about-img">
+                            <img src="/content/home2/images/about.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--About area end here-->
+        <div class="sud">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 181.1" style="enable-background:new 0 0 1920 181.1;" xml:space="preserve">
+            <style type="text/css">
+                .st0 {
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                    fill: #2C2E53;
+                }
+</style>
+            <g>
+            <path class="st0" d="M0,80c0,0,28.9-4.2,43-13c14.3-9,71-35.7,137,5c17.3,7.7,33.3,13,48,11c17.3,0.3,50.3,4.7,66,23
+            c20.3,9.7,68,40.3,134-12c24-11,59-16.3,104,2c21,7.3,85,27.7,117-14c24-30.7,62.7-55,141-12c26,10.3,72,14.7,110-14
+            c37.7-19,89.7-29,122,53c23,32.7,47.7,66.3,97,26c24-22.7,51-78.3,137-38c0,0,28.3,15.7,52,15c23.7-0.7,50.7,4.3,76,41
+            c19.7,19.7,71,36.7,121-2c0,0,22.3-16,55-12c0,0,32.7,6.7,56-71c23.3-76,79-92,122-29c9.3,13.7,25,42,62,43c37,1,51.7,25.3,67,48
+            c15.3,22.7,51,22.7,53,23v28.1H0V80z">            
+         </path>
+      </g>
+   </svg>
+        </div>
+    </div>
+
+    <div section-scroll="2" class="wd_scroll_wrap">
+        <!--WHY CHOOSE LITEBOND?-->
+        <section class="features-area section">
+            <div id="features-js">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="section-heading2">
+                                <h2>WHY CHOOSE LITEBOND?</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="featured-lists">
+                                <ul>
+                                    <li>
+                                        <div class="col-sm-6 pd-0 hidden-xs">
+                                            <div class="contents-l mr-b30">
+                                                <h2>Transparency</h2>
+                                                <p>Cheat codes and special privileges do not exist in LiteBond. All transactions in the system are clear, transparent and unaffected by anyone, even system creators, because the entire system is managed by Blockchain technology and automated systems. Therefore, this is a transparent financial system. </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 pd-0">
+                                            <div class="imgs-l">
+                                                <figure><img src="/content/home2/images/transparency.png" alt=""></figure>
+                                            </div>
+                                        </div>
+					<div class="col-sm-6 pd-0 visible-xs">
+                              		    <div class="contents-l mr-b30">
+                                 		<h2>Transparency</h2>
+                                 		<p>Cheat codes and special privileges do not exist in LiteBond. All transactions in the system are clear, transparent and unaffected by anyone, even system creators, because the entire system is managed by Blockchain technology and automated systems. Therefore, this is a transparent financial system. </p>                                       
+                              		    </div>
+                           		</div> 
+                                    </li>
+                                    <li class="rl">
+                                        <div class="col-sm-6 pd-0 floatright mr-b30 hidden-xs">
+                                            <div class="contents-r">
+                                                <h2>Automatic</h2>
+                                                <p>LITEBOND was created with automatic and intelligent platform. Its mission is to automatically pay interest to the investor and automatically disperse the money to the recipient. Your simple task is to set time to draw interest and commissions on your balance.</p>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 pd-0">
+                                            <div class="imgs-r">
+                                                <figure><img src="/content/home2/images/automatic.png" alt=""></figure>
+                                            </div>
+                                        </div>
+					<div class="col-sm-6 pd-0 visible-xs">
+                              			<div class="contents-r">
+                                 		<h2>Automatic</h2>
+                                 		<p>LITEBOND was created with automatic and intelligent platform. Its mission is to automatically pay interest to the investor and automatically disperse the money to the recipient. Your simple task is to set time to draw interest and commissions on your balance.</p>                                       
+                              		</div>
+                           </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-sm-6 pd-0 hidden-xs">
+                                            <div class="contents-l mr-b30">
+                                                <h2>Escrowing of Litecoin</h2>
+                                                <p>LITEBOND is a community of model, financial - social networks where people help each other. This is a decentralized community fund based on Blockchain technology. We are currently developing on the LiteCoin platform, as LTC is among the top five currencies used in the world.</p>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 pd-0">
+                                            <div class="imgs-l">
+                                                <figure><img src="/content/home2/images/communityfund.png" alt=""></figure>
+                                            </div>
+                                        </div>
+					<div class="col-sm-6 pd-0 visible-xs">
+                              			<div class="contents-l mr-b30">
+                                		 <h2>Community of Litecoin Funds</h2>
+                                 		<p>LITEBOND is a community of model, financial - social networks where people help each other. This is a decentralized community fund based on Blockchain technology. We are currently developing on the LiteCoin platform, as LTC is among the top five currencies used in the world.</p>                                       
+                              			</div>
+                           		</div>
+                                    </li>
+                                    <li class="rl">
+                                        <div class="col-sm-6 pd-0 floatright mr-b30 hidden-xs">
+                                            <div class="contents-r">
+                                                <h2>Online Wallet</h2>
+                                                <p>Keep your money, exchange your money, invest your money, pay<br>services and make purchases.</p>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 pd-0">
+                                            <div class="imgs-r">
+                                                <figure><img src="/content/home2/images/walletlitecoin.png" alt=""></figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 pd-0 floatright mr-b30 visible-xs">
+                                            <div class="contents-r">
+                                                <h2>Online Wallet</h2>
+                                                <p>Keep your money, exchange your money, invest your money, pay<br>services and make purchases.</p>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!----start video -->
+        <section class="video-area section">
+            <div id="video-js">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">                            
+                                <h2>Development of Litebond Platform</h2>
+                                <iframe class="col-lg-12 col-md-12 col-sm-12 col-xs-12" height="600" src="https://www.youtube-nocookie.com/embed/q7B7S88RtV8?rel=0&amp;controls=0&amp;showinfo=0?modestbranding=1&cc_load_policy=1&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Advantage-->
+        <section class="projects bg-img pd-t100 pd-b70 jarallax">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                        <div class="section-heading">
+                            <h2>Advantage of LITEBOND</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="project-list">
+                            <div class="content">
+                                <span class="icons"><img src="/content/home2/images/6.png" alt=""></span>
+                                <h3>Blockchain <br>Technology</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="project-list">
+                            <div class="content">
+                                <span class="icons"><img src="/content/home2/images/7.png" alt=""></span>
+                                <h3>Advanced <br>Security System</h3>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="project-list">
+                            <div class="content">
+                                <span class="icons"><img src="/content/home2/images/10.png" alt=""></span>
+                                <h3>Safety <br>Fund</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <div class="sud">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 181.1" style="enable-background:new 0 0 1920 181.1;" xml:space="preserve">
+            <style type="text/css">
+                .st0 {
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                    fill: #2C2E53;
+                }
+</style>
+            <g>
+            <path class="st0" d="M0,80c0,0,28.9-4.2,43-13c14.3-9,71-35.7,137,5c17.3,7.7,33.3,13,48,11c17.3,0.3,50.3,4.7,66,23
+         c20.3,9.7,68,40.3,134-12c24-11,59-16.3,104,2c21,7.3,85,27.7,117-14c24-30.7,62.7-55,141-12c26,10.3,72,14.7,110-14
+         c37.7-19,89.7-29,122,53c23,32.7,47.7,66.3,97,26c24-22.7,51-78.3,137-38c0,0,28.3,15.7,52,15c23.7-0.7,50.7,4.3,76,41
+         c19.7,19.7,71,36.7,121-2c0,0,22.3-16,55-12c0,0,32.7,6.7,56-71c23.3-76,79-92,122-29c9.3,13.7,25,42,62,43c37,1,51.7,25.3,67,48
+         c15.3,22.7,51,22.7,53,23v28.1H0V80z">
+
+      </path>
+   </g>
+</svg>
+        </div>
+    </div>
+
+
+    <div section-scroll="3" class="wd_scroll_wrap">
+        <!--  HOW IT WORKS -->
+        <section class="steps-area section">
+            <div id="steps-js">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
+                            <div class="steps-heading">
+                                <h2>HOW IT WORKS</h2>
+                                <div class="right-con">
+                                    <span>Scroll Down</span>
+                                    <a data-scroll="" data-options="{ &quot;speed&quot;: 100 }" href=""><i class="fa fa-angle-down"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="steps" class="steps-details bg-mg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1">
+                        <div class="steps-cont">
+                            <ul>
+                                <li class="l-con">
+                                    <div class="cont">
+                                        <h2>01. Registration On The Platform</h2>
+                                        <p></p>
+                                    </div>
+                                    <span><i class="fa fa-users"></i></span>
+                                </li>
+                                <li class="r-con">
+                                    <div class="cont">
+                                        <h2>02. Update Information</h2>
+                                        <p></p>
+                                    </div>
+                                    <span><i class="fa fa-check-square-o"></i></span>
+                                </li>
+                                <li class="l-con">
+                                    <div class="cont">
+                                        <h2>03. Escrowed To Receive</h2>
+                                        <p></p>
+                                    </div>
+                                    <span><i class="fa fa-edit "></i></span>
+                                    <div class="mid-icons"></div>
+                                </li>
+                                <li class="r-con">
+                                    <div class="cont">
+                                        <h2>04. Complete Receiving Daily Interest From The Platform </h2>
+                                        <p></p>
+                                    </div>
+                                    <span><i class="fa fa-university"></i></span>
+                                </li>
+                                <li class="l-con">
+                                    <div class="cont">
+                                        <h2>05. Withdraw Capital And Profit To Your Wallet</h2>
+                                        <p></p>
+                                    </div>
+                                    <span><i class="fa fa-bell"></i></span>
+                                    <div class="mid-icons"></div>
+                                </li>
+                                <li class="r-con">
+                                    <div class="cont">
+                                        <h2>06. Enjoy the richness !</h2>
+                                        <p></p>
+                                    </div>
+                                    <span><i class="fa fa-paw"></i></span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sud">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 181.1" style="enable-background:new 0 0 1920 181.1;" xml:space="preserve">
+            <style type="text/css">
+                .st0 {
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                    fill: #2C2E53;
+                }
+</style>
+            <g>
+            <path class="st0" d="M0,80c0,0,28.9-4.2,43-13c14.3-9,71-35.7,137,5c17.3,7.7,33.3,13,48,11c17.3,0.3,50.3,4.7,66,23
+         c20.3,9.7,68,40.3,134-12c24-11,59-16.3,104,2c21,7.3,85,27.7,117-14c24-30.7,62.7-55,141-12c26,10.3,72,14.7,110-14
+         c37.7-19,89.7-29,122,53c23,32.7,47.7,66.3,97,26c24-22.7,51-78.3,137-38c0,0,28.3,15.7,52,15c23.7-0.7,50.7,4.3,76,41
+         c19.7,19.7,71,36.7,121-2c0,0,22.3-16,55-12c0,0,32.7,6.7,56-71c23.3-76,79-92,122-29c9.3,13.7,25,42,62,43c37,1,51.7,25.3,67,48
+         c15.3,22.7,51,22.7,53,23v28.1H0V80z"></path>
+      </g>
+   </svg>
+        </div>
+
+    </div>
+
+
+    <div section-scroll="4" class="wd_scroll_wrap">
+        <!-- INVITE TO RECEIVE -->
+        <section class="tokens-area section">
+            <div id="token-js">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="section-heading2">
+                                <h2>INVITE TO RECEIVE</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-9 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
+                            <div class="text-center col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="tokens">
+                                    <div class="token-name col-lg-12 col-md-12 col-sm-12 col-xs-12">COMMISSION</div>
+                                    <div class="token-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <p>Inviting new members to the community escrows to the development of the community</p>
+                                        <div style="width:100%; float:left; text-align:center">
+                                            <button class="left-btn">COMMISSION FOR MEMBERS</button>
+                                            <div style="text-align:auto; width:100%" align="center">
+                                                <div class="easypiechart skill-circle" >
+                                                    <span class="percent head-font">10</span><br>
+                                                    <span class="con">Direct Commission</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                <p class="token-con">10% x the latest escrow by direct subordinates. Inviting new members to the community escrows to the development of the community. There is no obligations for you to invite new participants. But the bigger the fund is, the more sustainable it will be. Only that could it be a long-term investment, making passive income for you without doing anything. However we should understand that the Escrowing of Litecoin (EOL) cannot be operated without the development of new entrants. Every time your direct subordinates increase their escrowings, you still earn this commission. Direct commission <span>is received once your invitees have completed their initial deposits</span> to the community fund.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTEREST RATE LEVEL -->
+        <section class="about-area pd-t70 pd-b100 jarallax bg-img">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="about-content">
+                            <h2 class="f-40 fw-400">INTEREST RATE LEVEL</h2>
+                            <p class="token-con"><span>Anyone can upgrade their interested rate level by guiding new people, building their own hierarchy and getting interest rate from level. Interested level system and corresponding bonus: </span></p>
+                            <p>With Min 0.5 LTC to Max 1.5 LTC => You are Level L => You get 0.6% daily</p>
+                  <p>With Min 1.5 LTC to Max 3 LTC and 5 new escrowers in L => You are Level L1 => You get 0.65% daily</p>
+                  <p>With Min 3 LTC to Max 6 LTC and 3 escrowers in L1 => You are Level L2 => You get 0.7% daily</p>
+                  <p>With Min 6 LTC to Max 12 LTC and 3 escrowers in L2 => You are Level L3 => You get 0.7% daily</p>
+                  <p>With Min 12 LTC to Max 24 LTC and 3 escrowers in L3 => You are Level L4 => You get 0.75% daily</p>
+                  <p>With Min 24 LTC to Max 48 LTC and 3 escrowers in L4 => You are Level L5 => You get 0.75% daily</p>
+                  <p>With Min 48 LTC to Max 96 LTC and 3 escrowers in L5 => You are Level L6 => You get 0.8% daily</p>
+                  <p>With Min 96 LTC to Max 192 LTC and 3 escrowers in L6 => You are Level L7 => You get 0.8% daily</p>
+                  <p>With Min 192 LTC to Max 384 LTC and 3 escrowers in L7 => You are Level L8 => You get 0.85% daily</p>
+                  <p>With Min 384 LTC to Max 768 LTC and 3 escrowers in L8 => You are Level L9 => You get 0.9% daily</p>
+                  <p>With Min 768 LTC to Max 1536 LTC and 3 escrowers in L9 => You are Level L10 => You get 0.95% daily</p>
+                            <p>INTEREST RATE LEVEL: from 0.6% to 0.95% daily. This interest is calculated according to the interest rate table.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                        <div class="about-img">
+                            <img src="/content/home2/images/interesratelevel.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- start circle -->
+        <div class="sud">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 181.1" style="enable-background:new 0 0 1920 181.1;" xml:space="preserve">
+            <style type="text/css">
+                .st0 {
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                    fill: #2C2E53;
+                }
+</style>
+            <g>
+            <path class="st0" d="M0,80c0,0,28.9-4.2,43-13c14.3-9,71-35.7,137,5c17.3,7.7,33.3,13,48,11c17.3,0.3,50.3,4.7,66,23
+         c20.3,9.7,68,40.3,134-12c24-11,59-16.3,104,2c21,7.3,85,27.7,117-14c24-30.7,62.7-55,141-12c26,10.3,72,14.7,110-14
+         c37.7-19,89.7-29,122,53c23,32.7,47.7,66.3,97,26c24-22.7,51-78.3,137-38c0,0,28.3,15.7,52,15c23.7-0.7,50.7,4.3,76,41
+         c19.7,19.7,71,36.7,121-2c0,0,22.3-16,55-12c0,0,32.7,6.7,56-71c23.3-76,79-92,122-29c9.3,13.7,25,42,62,43c37,1,51.7,25.3,67,48
+         c15.3,22.7,51,22.7,53,23v28.1H0V80z"></path>
+      </g>
+   </svg>
+        </div>
+        <!-- end start circle -->
+    </div>
+
+    <div section-scroll="5" class="wd_scroll_wrap">
+        <!-- INTEREST RATE TABLE -->
+        <section class="tokens-area section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
+                        <div class="section-heading2">
+                            <h2 class="f-40 fw-400">INTEREST RATE TABLE</h2>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
+                        <div class="about-img">
+                            <img src="/content/home2/images/dailypro4.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- NETWORK COMMISSION -->
+   <section class="about-area pd-t70 pd-b100 jarallax bg-img">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+               <div class="about-content">
+                  <h2 class="f-40 fw-400">NETWORK COMMISSION</h2>
+                  <p class="token-con"><span>Anyone can receive their network commission by guiding new people, building their own hierarchy and getting percentage of commission from total escrowing networking :</span></p>
+                  <p>Call N is total of escrowed amount.</p>
+                  <p>A is about five times as big as N (A=5*N)</p>
+                  <p>B is about ten times as big as N (B=10*N)</p>
+                  <p>C is about twenty times as big as N (C=20*N)</p>
+                  <p>D is about thirty times as big as N (D=30*N)</p>
+                  <p>E is about fifty times as big as N (E=50*N)</p>
+                  <p>F is about seventy times as big as N (F=70*N)</p>
+                  <p>G is about one hundred times as big as N (G=100*N)</p>
+                  <p>If A is lower than or equal to N and N is lower than B, you receive 3% of your amount escrowed total.</p>
+                  <p>If B is lower than or equal to N and N is lower than C, you receive 5% of your amount escrowed total.</p>
+                  <p>If C is lower than or equal to N and N is lower than D, you receive 6% of your amount escrowed total.</p>
+                  <p>If D is lower than or equal to N and N is lower than E, you receive 7% of your amount escrowed total.</p>
+                  <p>If E is lower than or equal to N and N is lower than F, you receive 8% of your amount escrowed total.</p>
+                  <p>If F is lower than or equal to N and N is lower than G, you receive 9% of your amount escrowed total.</p>
+                  <p>If N is higher than or equal to G, you receive 10% of your escrowed total.</p>
+               </div>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+               <div class="about-img">
+                  <img src="/content/home2/images/networkcommision.png" alt="">
+               </div>               
+            </div>
+         </div>
+      </div>
+   </section>
+
+
+
+    </div>
+
+    <div section-scroll="6" class="wd_scroll_wrap">
+        <!-- ROLES OF LTC -->
+   <section class="token-details section bg-img">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+               <div class="section-heading">
+                  <h2>ROLES OF LTC</h2>
+               </div>
+            </div>
+
+            <div class="col-lg-12 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">                                 
+               <div class="imgs">
+                  <img src="/content/home2/images/roles2.png" alt="">
+               </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+               <div class="contents text-center">
+                  <h2>The issued tokens will be distributed as follows:</h2>
+                  <a href="" class="btn1">Download WhitePaper</a>
+               </div>
+            </div>
+            
+         </div>
+      </div>
+   </section>
+
+
+        <!-- ESCROW TO THE COMMUNITY AND GET PROFIT -->
+        <section class="tokens-area section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="section-heading">
+                            <h2>ESCROW TO THE COMMUNITY AND GET PROFIT</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
+                            <div class="imgs">
+                                <img src="/content/home2/images/logomain2.png" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12">
+                            <div class="contents text-center">
+                                <h2>We recommend starting with a small amount of money and experience: start with a escrowing to become a contributor until you get both capital and interest. Then, you can evaluate this community and decide whether to continue or not.</h2>
+                                <a href="" class="btn1">Register Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+
+        <div section-scroll="7" class="wd_scroll_wrap">
+            <!-- Frequently Asked Question And Warning -->
+            <section class="token-details section contt_area faq_area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="section-heading2">
+                                <h2 class="wow  fadeIn animated" data-wow-duration="1.0s" style="visibility: hidden; animation-duration: 1s; animation-name: none;">Frequently Asked Question And Warning</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 wow  fadeIn animated" data-wow-duration="1.5s" style="visibility: hidden; animation-duration: 1.5s; animation-name: none;">
+                            <div class="team2-area btc_right_contt">
+                                <div class="btc_faq_main_wrapper">
+                                    <div class="accordionFifteen">
+                                        <div class="panel-group" id="accordionFifteenLeft" role="tablist">
+                                            <div class="panel panel-default sidebar_pannel">
+                                                <div class="panel-heading desktop">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordionFifteenLeft" href="" aria-expanded="false">- No one is the boss, the leader or the person responsible for the community. Because all of us are the owners of this community.</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <!-- /.panel-default -->
+                                            <div class="panel panel-default sidebar_pannel">
+                                                <div class="panel-heading horn">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionFifteenLeft" href="" aria-expanded="false">- Using loan to contribute is forbidden. Any financial loss is at your own responsibility.</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <!-- /.panel-default -->
+                                            <div class="panel panel-default sidebar_pannel">
+                                                <div class="panel-heading bell">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionFifteenLeft" href="" aria-expanded="false">- LITEBOND is a crowfunding financial fund.</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <!-- /.panel-default -->
+                                            <div class="panel panel-default sidebar_pannel">
+                                                <div class="panel-heading bell">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionFifteenLeft" href="" aria-expanded="false">- LITEBOND is not a lending coin or lending platform. Because it is a decentralized financial fund from the community</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <!-- /.panel-default -->
+                                            <div class="panel panel-default sidebar_pannel">
+                                                <div class="panel-heading bell">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionFifteenLeft" href="" aria-expanded="false">- LITEBOND is not an organization. Because it does not have any leaders who receive benefits from support. And everything is decided by the community. </a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <!-- /.panel-default -->
+                                            <div class="panel panel-default sidebar_pannel">
+                                                <div class="panel-heading bell">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionFifteenLeft" href="" aria-expanded="false">- LITEBOND is not a MLM company. Because it does not have buy or sell anything.</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <!-- /.panel-default -->
+                                            <div class="panel panel-default sidebar_pannel">
+                                                <div class="panel-heading bell">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionFifteenLeft" href="" aria-expanded="false">- Low transaction fee (2% of withdrawal money).</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <!-- /.panel-default -->
+                                            <div class="panel panel-default sidebar_pannel">
+                                                <div class="panel-heading bell">
+                                                    <h4 class="panel-title">
+                                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionFifteenLeft" href="" aria-expanded="false">- The Fund always helps to maintain the community stability and to invest in Marketing to increase the community.</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end of /.panel-group-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- start circle -->
+            <div class="sud">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 181.1" style="enable-background:new 0 0 1920 181.1;" xml:space="preserve">
+                <style type="text/css">
+
+                    .st0 {
+                        fill-rule: evenodd;
+                        clip-rule: evenodd;
+                        fill: #2C2E53;
+                    }
+</style>
+                <g>
+                <path class="st0" d="M0,80c0,0,28.9-4.2,43-13c14.3-9,71-35.7,137,5c17.3,7.7,33.3,13,48,11c17.3,0.3,50.3,4.7,66,23
+         c20.3,9.7,68,40.3,134-12c24-11,59-16.3,104,2c21,7.3,85,27.7,117-14c24-30.7,62.7-55,141-12c26,10.3,72,14.7,110-14
+         c37.7-19,89.7-29,122,53c23,32.7,47.7,66.3,97,26c24-22.7,51-78.3,137-38c0,0,28.3,15.7,52,15c23.7-0.7,50.7,4.3,76,41
+         c19.7,19.7,71,36.7,121-2c0,0,22.3-16,55-12c0,0,32.7,6.7,56-71c23.3-76,79-92,122-29c9.3,13.7,25,42,62,43c37,1,51.7,25.3,67,48
+         c15.3,22.7,51,22.7,53,23v28.1H0V80z"></path>
+      </g>
+   </svg>
+            </div>
+            <!-- end start circle -->
+            <!--Footer area start here-->
+            <footer class="top-foo">
+                <div id="footer-js">
+                    <div class="footer-top section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="con">
+                                        <h2>Subscribe to us!</h2>
+                                        <ul>
+                                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href=""><i class="fa fa-send-o"></i></a></li>
+                                            <li><a href=""><i class="fa fa-bitcoin"></i></a></li>
+                                            <li><a href=""><i class="fa fa-envelope"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <footer class="foo-bot">
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2018 <span>@ViewBag.CoppyRight</span>. All Rights Reserved.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="foo-link">
+                                    <ul>
+                                        <li><a href="">WhitePaper</a></li>
+                                        <li><a href="~/doc/download/TERMS_OF_SERVICE.pdf">Terms of Service</a></li>
+                                        <li><a href="~/doc/download/Privacy_Policy_of_LiteBond.pdf" >Privacy Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+        </div>
+
+
+        <script src="/content/home2/js/jquery-3.2.1.min.js"></script>
+        <!-- tether js -->
+        <script src="/content/home2/js/tether.min.js"></script>
+        <!-- bootstrap js -->
+        <script src="/content/home2/js/bootstrap.min.js"></script>
+        <!-- owl.carousel js -->
+        <script src="/content/home2/js/owl.carousel.min.js"></script>
+        <!-- meanmenu js -->
+        <script src="/content/home2/js/jquery.meanmenu.js"></script>
+        <!-- jquery-ui js -->
+        <script src="/content/home2/js/jquery-ui.min.js"></script>
+        <!-- easypiechart js -->
+        <script src="/content/home2/js/jquery.easypiechart.min.js"></script>
+        <!-- particles js -->
+        <!-- wow js -->
+        <script src="/content/home2/js/wow.min.js"></script>
+        <!-- smooth-scroll js -->
+        <script src="/content/home2/js/smooth-scroll.min.js"></script>
+        <!-- plugins js -->
+        <script src="/content/home2/js/plugins.js"></script>
+        <!-- EChartJS JavaScript -->
+        <script src="/content/home2/js/echarts-en.min.js"></script>
+
+        <script src="/content/home2/js/echarts-liquidfill.min.js"></script>
+        <script src="/content/home2/js/vc_round_chart.min.js"></script>
+        <script src="/content/home2/js/videojs-ie8.min.js"></script>
+        <script src="/content/home2/js/video.js"></script>
+        <script src="/content/home2/js/Youtube.min.js"></script>
+        <!-- main js -->
+        <script src="/content/home2/js/main.js"></script>
+</body>
+</html>
+
+

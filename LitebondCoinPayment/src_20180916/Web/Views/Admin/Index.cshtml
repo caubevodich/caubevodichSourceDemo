@@ -1,0 +1,184 @@
+﻿@model WebUI.Models.AdminModel
+
+@{
+    ViewBag.Title = "Admin";
+}
+
+
+<h1> Admin Page</h1>
+<div class="col-md-12">
+
+    <h3>View All Transaction</h3>
+    <table id="tbViewWithdraw" class="data-table tranx-table">
+        <thead>
+            <tr>
+                <th><span>ID</span></th>
+                <th class="refferal-date"><span>Email/UserId</span></th>
+                <th class="refferal-bonus"><span>Amount</span></th>
+                <th class="refferal-tokens"><span>CreatedAt</span></th>
+                <th style="text-align:center"><span>Status</span></th>
+                <th style="text-align:center"><span>Address</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ var index = 0;}
+            @foreach (var item in Model.TransactionWithdraw)
+            {
+                index++;
+                var amount = (float)item.Amount;
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.UserId</td>
+                    <td> <button class="btn btn-primary btn-xs clear-activity"> @amount LTC</button></td>
+                    <td>@item.CreatedAt.ToUniversalTime()</td>
+                    @if (item.Status == "Confirmed")
+                    {
+                        <td style="text-align:center">Confirmed</td>
+                    }
+                    else if (item.Status == "Pending")
+                    {
+                        <td style="text-align:center">Pending</td>
+                    }
+                    else
+                    {
+                        <td style="text-align:center">Canceled</td>
+                    }
+                    <td><span class="badge badge-pill badge-info">@item.WalletAddress</span></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h3>View All Transaction With Confirmed</h3>
+    <table id="tbViewWithdrawWithConfirmed" class="data-table tranx-table">
+        <thead>
+            <tr>
+                <th><span>ID</span></th>
+                <th class="refferal-date"><span>Email/UserId</span></th>
+                <th class="refferal-bonus"><span>Amount</span></th>
+                <th class="refferal-tokens"><span>CreatedAt</span></th>
+               @* <th><span>Status</span></th>*@
+                <th><span>TXID</span></th>
+                <th style="text-align:center"><span>Address</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ var index3 = 0;}
+            @foreach (var item in Model.TransactionWithdrawWithConfirmed)
+            {
+                index3++;
+                var amount = (float)item.Amount;
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.UserId</td>
+                <td><button  class="btn btn-primary btn-xs clear-activity"> @amount LTC</button></td>
+                <td>@item.CreatedAt.ToUniversalTime()</td>
+               @* <td>Confirmed</td>*@
+                <td><a target="_blank" href="https://chain.so/tx/@item.Network/@item.TxId">View</a></td>
+                <td style="text-align:center"><span class="badge badge-pill badge-info">@item.WalletAddress</span></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+    <h3>View All Transaction With Pending</h3>
+    <table id="tbViewWithdrawWithPending" class="data-table tranx-table">
+        <thead>
+            <tr>
+                <th><span>ID</span></th>
+                <th class="refferal-date"><span>Email/UserId</span></th>
+                <th class="refferal-bonus"><span>Amount</span></th>
+                <th class="refferal-tokens"><span>CreatedAt</span></th>
+              @*  <th><span>Status</span></th>*@
+                <th style="text-align:center"><span>Address</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ var index2 = 0;}
+            @foreach (var item in Model.TransactionWithdrawWithPending)
+            {
+                index2++;
+                var amount = (float)item.Amount;
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.UserId</td>
+                <td><button  class="btn btn-primary btn-xs clear-activity"> @amount LTC</button></td>
+                <td>@item.CreatedAt.ToUniversalTime()</td>
+              @*  <td>Pending</td>*@
+                <td style="text-align:center"><span class="badge badge-pill badge-info">@item.WalletAddress</span></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <h3>Change Status Withdraw After Admin Send Coin For User</h3>
+    <div class="input-item input-with-label">
+        <label for="full-name" class="input-item-label">ID</label>
+        <input class="input-bordered" type="number" id="idTransaction" name="idTransaction" placeholder="Input ID" required>
+    </div>
+    <div class="input-item input-with-label">
+        <label for="full-name" class="input-item-label">TXID(TX Transaction)</label>
+        <input class="input-bordered" type="text" id="txidAfterSend" name="txidAfterSend" placeholder="Input TXID" required>
+    </div>
+    <div class="input-item input-with-label">
+        <label for="full-name" class="input-item-label">Status</label>
+        <input class="input-bordered" type="text" id="statusAfterSend" name="statusAfterSend" placeholder="" value="Confirmed" required disabled>
+    </div>
+    <div class="d-sm-flex justify-content-between align-items-center">
+        <button class="btn btn-primary" type="submit" id="btnAddTxid">Update TXID</button>
+        <div class="gaps-2x d-sm-none"></div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script type="text/javascript">
+
+        $('#btnAddTxid').on('click', function () {
+            AddTxid();
+        });
+
+        function AddTxid() {
+            var idTran = $("#idTransaction").val();
+            var txidTran = $('#txidAfterSend').val();
+            var statusTran = $('#statusAfterSend').val();
+            $.ajax({
+                type: "POST",
+                url: '/admin/updateStatusTransactionToConfirmed',
+                data: { id: parseInt(idTran), txid: txidTran, status: statusTran },
+                success: function (response) {
+                    if (response.IsError == true) {
+                        swal({
+                            title: response.message,
+                            type: 'success',
+                            confirmButtonText: 'Ok'
+                        }).then(() => {
+                            window.location.reload();
+                        });
+                    } else {
+                        swal("Fail !", response.message, "error");
+                        swal({
+                            type: "error",
+                            title: "Fail !",
+                            text: response.message,
+                            footer: '<a href>Please try again !</a>'
+                        }).then(() => {
+                            window.location.reload();
+                        });
+                    }
+                },
+                error: function (message) {                    
+                    swal({
+                        type: "error",
+                        title: "ERROR !",
+                        footer: '<a href>Please try again !</a>'
+                    }).then(() => {
+                        window.location.reload();
+                    });
+                }
+            });
+        }
+
+    </script>
+}

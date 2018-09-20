@@ -1,0 +1,57 @@
+﻿@model WebUI.Models.ProfileViewModel
+@{
+    ViewBag.Title = "My Profile";
+}
+
+<!-- new template -->
+<h2 class="user-panel-title">Account Information</h2>
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active " data-toggle="tab" href="#profile3">Personal Information</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#change_address">Change Address LTC</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#change_password">Change Password</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#two_factor">
+                    Two-Factor Authentication <span class="badge badge-pill badge-info">
+                        @Model.TwoFactorStatus
+
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#messages3">Login History</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane  show" id="home3" role="tabpanel">
+                <div style="height:450px"></div>
+            </div>
+            <div class="tab-pane active" id="profile3" role="tabpanel">
+                @Html.Partial("_PersonalInformationPartial", Model)
+
+            </div>
+            <div class="tab-pane" id="change_address" role="tabpanel">
+
+                @Html.Partial("_ChangeAddressLitePartial")
+            </div>
+            <div class="tab-pane" id="change_password" role="tabpanel">
+
+                @Html.Partial("_ChangePasswordPartial")
+            </div>
+            <div class="tab-pane" id="two_factor" role="tabpanel">
+                @Html.Partial("_TwoFactorPartial", Model)
+            </div>
+            <div class="tab-pane" id="messages3" role="tabpanel">
+                @Html.Partial("_LoginHistoryPartial", Model)
+            </div>
+
+        </div>
+    </div>
+</div>
